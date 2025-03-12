@@ -1,0 +1,36 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE-Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="decription" content="Sapzurro map page">
+    <meta name="author" content="Diego Lopez">
+    <meta name="copyright" content="Mapaventura">
+
+    <title>MAPAVENTURA | Sapzurro | {% block title %}{% endblock %}</title>
+    {% block head %}{% endblock %}
+
+    <link rel="stylesheet" href="https://use.typekit.net/xlu8vot.css">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}"/>
+
+  </head>
+  <body id="main" style="background-color: {{ background_color }}; color: {{ foreground_color }}; font-family: thrillers; font-weight: 400; font-style: normal;">
+
+    {% include 'header.html' %}
+
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+
+    {% include 'footer.html' %}
+
+    <script type="text/javascript" src="{% static 'js/header.js' %}"></script>
+    {% block script %}
+    {% endblock %}
+  </body>
+</html>

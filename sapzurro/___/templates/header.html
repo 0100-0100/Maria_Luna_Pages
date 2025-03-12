@@ -1,0 +1,16 @@
+{% load static %}
+<header>
+  <nav>
+    <button onclick="toggleMenu(this);" data-open="false">Toggle</button>
+    <ul style="color: #275950">
+      <li>Home</li>
+      <li>Explore the map</li>
+      <li>What you should know about Sapzurro</li>
+      <li>About MAPAVENTURA</li>
+    </ul>
+  </nav>
+  <div class="header-logo">
+    <h2>MAPAVENTURA</h2>
+    {% include 'svg/mapaventura_logo.svg' %}
+  </div>
+</header>
