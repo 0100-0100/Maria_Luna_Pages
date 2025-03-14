@@ -1,9 +1,18 @@
 footer {
-  height: 50px;
   width: 100vw;
   background-color: var(--menu-toggle-foreground);
   color: var(--menu-toggle-background);
   display: flex;
   justify-content: center;
   align-content: center;
+}
+
+footer div {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  /* overflow-y: hidden; */
+}
+
+footer img {
 }
