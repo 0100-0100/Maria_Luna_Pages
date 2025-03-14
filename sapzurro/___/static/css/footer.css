@@ -1,0 +1,9 @@
+footer {
+  height: 50px;
+  width: 100vw;
+  background-color: var(--menu-toggle-foreground);
+  color: var(--menu-toggle-background);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
