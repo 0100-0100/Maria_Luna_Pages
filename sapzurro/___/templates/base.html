@@ -12,13 +12,18 @@
 
     <title>MAPAVENTURA | Sapzurro | {% block title %}{% endblock %}</title>
     {% block head %}{% endblock %}
-
+    <style>
+    :root {
+      --menu-toggle-foreground: {{ foreground_color }};
+      --menu-toggle-background: {{ background_color }};
+    }
+    </style>
     <link rel="stylesheet" href="https://use.typekit.net/xlu8vot.css">
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/header.css' %}"/>
-
   </head>
-  <body id="main" style="background-color: {{ background_color }}; color: {{ foreground_color }}; font-family: thrillers; font-weight: 400; font-style: normal;">
+  <body id="main" style="font-family: Thrillers;">
 
     {% include 'header.html' %}
 
