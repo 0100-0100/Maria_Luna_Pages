@@ -22,14 +22,17 @@
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/header.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}"/>
   </head>
   <body id="main" style="font-family: Thrillers;">
 
     {% include 'header.html' %}
 
     <main>
-      {% block content %}
-      {% endblock %}
+      <article>
+        {% block content %}
+        {% endblock %}
+      </article>
     </main>
 
     {% include 'footer.html' %}
