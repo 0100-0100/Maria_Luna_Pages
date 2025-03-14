@@ -93,6 +93,12 @@ header aside {
   transition: translate var(--nav-animation-timing);
 }
 
+@media (max-width: 768px) {
+  header aside {
+    width: 100vw;
+  }
+}
+
 header label:has(input:checked) + aside {
   translate: 0;
 }
