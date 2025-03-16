@@ -22,6 +22,8 @@ footer img {
   bottom: -2px;
   height: 130px;
   z-index: 999;
+  pointer-events: none;
+  user-select: none;
 }
 
 @media (max-width: 768px) {
