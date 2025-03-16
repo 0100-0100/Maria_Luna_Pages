@@ -16,10 +16,12 @@
 }
 
 header {
+  position: sticky;
+  top: 0;
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
-  z-index: 10;
+  z-index: 1000;
 }
 
 /* Header Navigation Menu Styles
@@ -33,7 +35,7 @@ header label {
   display: flex;
   flex-direction: column;
   gap: var(--menu-toggle-line-gap);
-  z-index: 11;
+  z-index: 1001;
   cursor: pointer;
 }
 
@@ -87,10 +89,11 @@ header aside {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #1C1C1C20;
+  background-color: #1C1C1C30;
   backdrop-filter: blur(3px);
   translate: -100%;
   transition: translate var(--nav-animation-timing);
+  z-index: 1000;
 }
 
 @media (max-width: 768px) {
@@ -121,7 +124,7 @@ header aside nav a {
   flex-grow: 1;
   display: flex;
   align-items: center;
-  color: var(--menu-toggle-background);
+  color: var(--menu-toggle-foreground);
   background-color: #00000000;
   text-decoration: none;
   font-size: 45px;
@@ -129,7 +132,7 @@ header aside nav a {
 }
 
 header aside nav a:hover {
-  background-color: #1C1C1C20;
+  background-color: #1C1C1C50;
 }
 
 header aside nav a:nth-child(1):hover {
@@ -155,9 +158,11 @@ header div {
   display: flex;
   align-items: center;
   position: absolute;
+  z-index: 1000;
 }
 
 header div h2 {
   margin-right: var(--nav-border);
   line-height: var(--nav-border);
+  user-select: none;
 }
