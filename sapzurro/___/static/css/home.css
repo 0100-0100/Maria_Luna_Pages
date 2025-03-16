@@ -3,6 +3,7 @@
   width: 100vw;
   overflow: hidden;
   border: none;
+  user-select: none;
 }
 
 .swiper-slide {
