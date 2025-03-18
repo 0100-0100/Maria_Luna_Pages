@@ -3,8 +3,6 @@ from django.conf import settings
 from django.templatetags.static import static
 import os
 
-from core.models import Carousel
-
 colors = {
     'white': '#FFF7D8',
     'black': '#1C1C1C',
@@ -20,7 +18,6 @@ def home(request):
     context = {
         'foreground_color': colors['yellow'],
         'background_color': colors['main-1'],
-        'images': Carousel.objects.get(name='Home').get_image_urls(),
     }
     return render(request, 'home.html', context)
 
