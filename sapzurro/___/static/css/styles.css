@@ -6,16 +6,41 @@
   box-sizing: border-box;
 }
 
+*::selection {
+  background-color: var(--menu-toggle-foreground);
+  color: var(--menu-toggle-background);
+}
+*::-moz-selection {
+  background-color: var(--menu-toggle-foreground);
+  color: var(--menu-toggle-background);
+}
+*::-webkit-selection {
+  background-color: var(--menu-toggle-foreground);
+  color: var(--menu-toggle-background);
+}
+
 body {
   margin: 0;
   background-color: var(--menu-toggle-background);
   color: var(--menu-toggle-foreground);
 }
 
+a {
+  text-decoration: none;
+}
+
 article {
   width: 100vw;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
