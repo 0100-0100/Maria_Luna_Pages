@@ -1,24 +1,3 @@
-.swiper-container {
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  border: none;
-  user-select: none;
-}
-
-.swiper-slide {
-  height: 100%;
-  width: 100%;
-  border: none;
-}
-
-.carousel-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border: none;
-}
-
 #map-section {
   height: 100vh;
   width: 100vw;
