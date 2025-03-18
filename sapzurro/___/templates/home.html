@@ -1,38 +1,23 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static core_templatetags %}
 
 {% block styles %}
   <link rel="stylesheet" href="{% static 'css/home.css' %}">
   <link rel="stylesheet" href="{% static 'css/swiper/swiper-bundle.min.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/shared/carousel.css' %}">
 {% endblock %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
-  <section class="swiper">
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        {% for image in images %}
-          <div class="swiper-slide">
-            <img
-              class="carousel-image"
-              data-src="{{ image.url }}"
-              alt="Image {{ forloop.counter }}">
-          </div>
-        {% endfor %}
-      </div>
-      <!-- Navigation Buttons -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <!-- Pagination Dots -->
-      <div class="swiper-pagination"></div>
-    </div>
-  </section>
+
+  {% get_carousel "Home" %}
+
   <section id="map-section">
     <h1>Mapa Sapzurro 2025 | Primera Edición</h1>
     <h2>🌿 Explora, conoce y cuida el Darién Chocoano 🌿</h2>
     <h3>Este mapa no solo es una guía, es también una herramienta de conexión entre viajeros y la comunidad local. Aquí encontrarás rutas, playas, senderos, negocios y experiencias únicas que te permitirán explorar este paraíso de manera consciente.</h3>
-    <div style="height: 200px; border: solid 1px 100%; background-color: #0F0;">Mapa!!</div>
+    <div style="height: 200px; width: 100%; border: solid 1px 100%; background-color: #0F0;">Mapa!!</div>
     <h4>Toca y conoce más sobre nuestra oferta turística</h4>
     <a href="/map">Explora el mapa interactivo</a>
   </section>
