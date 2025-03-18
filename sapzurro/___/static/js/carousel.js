@@ -17,6 +17,10 @@ document.addEventListener("DOMContentLoaded", function () {
           el: ".swiper-pagination",
           clickable: true,
         },
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: true,
+        },
       });
     }
   }
