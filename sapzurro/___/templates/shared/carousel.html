@@ -1,0 +1,15 @@
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    {% for image in images %}
+      <div class="swiper-slide">
+        <img
+          class="carousel-image"
+          data-src="{{ image.url }}"
+          alt="Image {{ forloop.counter }}">
+      </div>
+    {% endfor %}
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
