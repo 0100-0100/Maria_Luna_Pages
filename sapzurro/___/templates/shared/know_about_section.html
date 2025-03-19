@@ -1,0 +1,33 @@
+{% load static %}
+
+<section>
+  <ul class="navigation">
+    {% for section in sections %}
+      <li class="navigation-button" data-section-id="section-{{ section.id }}">{{ section.name }}</li>
+    {% endfor %}
+  </ul>
+</section>
+
+{% for section in sections %}
+  <section id="section-{{ section.id }}" class="section-type-1">
+
+    <h1><u>{{ section.title }}</u></h1>
+
+    {% if section.image %}
+      <img class="section-type-1-img" alt="Image" src="{{ section.image.image.url }}"/>
+    {% endif %}
+
+    {% if section.text_content %}
+      <p>{{ section.text_content }}</p>
+    {% endif %}
+
+    {% if section.illustration %}
+      <img alt="Illustration" src="{{ section.illustration.image.url }}"/>
+    {% endif %}
+
+    {% if section.button_text and section.button_link %}
+      <a href="{{ section.button_link }}">{{ section.button_text }}</a>
+    {% endif %}
+
+  </section>
+{% endfor %}
