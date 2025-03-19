@@ -26,7 +26,13 @@ footer img {
   user-select: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 376px) {
+  footer img {
+    height: 87px;
+  }
+}
+
+@media (min-width: 377px) and (max-width: 768px) {
   footer img {
     height: 100px;
   }
