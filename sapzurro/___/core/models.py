@@ -1,5 +1,13 @@
 from django.db import models
 
+class Illustration(models.Model):
+    """Illustration assets model."""
+    name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='illustrations/')
+    added = models.DateField(auto_now_add=True)
+    def __str__(self):
+        return f"{self.name} | {self.added}"
+
 class Photo(models.Model):
     """Photo assets model."""
     name = models.CharField(max_length=255)
@@ -21,5 +29,26 @@ class Carousel(models.Model):
             img_urls_list.append({'url': _.image.url})
         return img_urls_list
 
+    def __str__(self):
+        return f"{self.name}"
+
+
+class ShouldKnowSection(models.Model):
+    """Model representing the sections for the what you should know about view."""
+    name = models.CharField(max_length=255)
+    title = models.CharField(max_length=255)
+    text_content=models.TextField(null=True, default=None)
+    button_text=models.CharField(max_length=255, null=True, default=None)
+    button_link=models.CharField(max_length=500, null=True, default="#")
+    image = models.ForeignKey(
+        Photo, on_delete=models.SET_NULL, null=True, blank=True,
+        related_name='should_know_sections'
+    )
+    illustration=models.ForeignKey(
+        Illustration,
+        on_delete=models.SET_NULL, null=True, blank=True,
+        related_name='should_know_sections'
+    )
+    added = models.DateField(auto_now_add=True)
     def __str__(self):
         return f"{self.name}"
