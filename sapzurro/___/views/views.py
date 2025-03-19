@@ -28,3 +28,11 @@ def map_view(request):
         'background_color': colors['black']
     }
     return render(request, 'map.html', context)
+
+
+def know_about(request):
+    context = {
+        'foreground_color': colors['main-3'],
+        'background_color': colors['black']
+    }
+    return render(request, 'know_about.html', context)
