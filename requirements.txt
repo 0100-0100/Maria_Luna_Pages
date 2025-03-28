@@ -1,3 +1,7 @@
-Django
+ipdb
+
+django
 django-cors-headers
-Pillow
+djangorestframework
+
+pillow
