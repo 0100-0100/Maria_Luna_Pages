@@ -1,0 +1,82 @@
+#map {
+  width: 100vw;
+  height: calc(100vh - 50px);
+}
+
+.map-marker-0 {
+  border: solid 3px #0F0;
+  border-radius: 32px;
+
+}
+
+.custom-control {
+  position: absolute;
+  bottom: 10px; /* above zoom buttons */
+  right: 10px;
+  background: white;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  border-radius: 4px;
+  z-index: 1000;
+  user-select: none;
+}
+
+.legend-box {
+  position: absolute;
+  bottom: 57px;
+  right: 10px;
+  width: 1000px;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  padding: 10px;
+  display: none;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 1300ms ease-in-out, transform 1300ms ease-in-out;
+}
+
+@media (max-width: 376px) {
+  .legend-box {
+    width: 200px;
+  }
+}
+
+@media (min-width: 377px) and (max-width: 768px) {
+  .legend-box {
+    width: 300px;
+  }
+}
+
+.legend-box.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.legend-box h4 {
+  margin: 0 0 5px;
+  font-size: 16px;
+}
+
+.legend-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.legend-box ul li {
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.legend-box ul li:hover {
+  background-color: #eee;
+}
