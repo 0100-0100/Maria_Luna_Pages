@@ -34,6 +34,6 @@ footer img {
 
 @media (min-width: 377px) and (max-width: 768px) {
   footer img {
-    height: 100px;
+    height: 80px;
   }
 }
