@@ -2,15 +2,15 @@ from django.db import models
 from core.models import Photo
 
 class Location(models.Model):
-    name = models.CharField(max_length=255, help_text="Name of the Location.", default="Location Name")
-    phone = models.CharField(null=True, max_length=255, help_text="Phone number for the Location.")
-    description = models.TextField(null=True, help_text="Long description of the Location.")
-    email = models.CharField(null=True, max_length=255, help_text="Email for the Location.")
-    instagram_link = models.CharField(null=True, max_length=255, help_text="Link for Instagram if available.")
-    website_link = models.CharField(null=True, max_length=255, help_text="Link for a website if available.")
-    icon = models.ManyToManyField(Photo, blank=True, related_name="map_location_marker", help_text="Icon for the location.")
-    x = models.IntegerField(null=True, help_text="X-coordinate in pixels.")
-    y = models.IntegerField(null=True, help_text="Y-coordinate in pixels.")
+    name =           models.CharField(max_length=255, help_text="Name of the Location.", default=None)
+    phone =          models.CharField(null=True, blank=True, default=None, max_length=255, help_text="Phone number for the Location.")
+    description =    models.TextField(null=True, blank=True, default=None, help_text="Long description of the Location.")
+    email =          models.CharField(null=True, blank=True, default=None, max_length=255, help_text="Email for the Location.")
+    instagram_link = models.CharField(null=True, blank=True, default=None, max_length=255, help_text="Link for Instagram if available.")
+    website_link =   models.CharField(null=True, blank=True, default=None, max_length=255, help_text="Link for a website if available.")
+    x =              models.FloatField(null=True, help_text="X-coordinate in pixels.", default=0)
+    y =              models.FloatField(null=True, help_text="Y-coordinate in pixels.", default=0)
+    icon =           models.ManyToManyField(Photo, blank=True, default=None, related_name="map_location_marker", help_text="Icon for the location.")
 
     def __str__(self):
         return self.name
