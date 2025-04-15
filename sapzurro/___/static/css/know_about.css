@@ -30,7 +30,7 @@
 }
 
 .section-type-1 a {
-  background-color: var(--menu-toggle-foreground);
+  background-color: #1C4036;
   color: var(--menu-toggle-background);
   height: 60px;
   border-radius: 10px;
@@ -60,7 +60,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--menu-toggle-foreground);
+  background-color: #3BC2AB;;
   color: var(--menu-toggle-background);
   padding: 5px;
   cursor: pointer;
