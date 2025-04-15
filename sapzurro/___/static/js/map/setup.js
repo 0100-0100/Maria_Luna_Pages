@@ -3,11 +3,11 @@ const h = 5851;
 
 const map = L.map('map', {
   crs: L.CRS.Simple,
-  minZoom: 2,
-  maxZoom: 5,
+  minZoom: 4,
+  maxZoom: 7,
   zoomControl: false,
   attributionControl: false
-}).setView([0, 0], 0);
+ }).setView([-32, 32], 4);
 
 L.control.zoom({ position: 'bottomleft' }).addTo(map);
 const southWest = map.unproject([0, h], map.getMaxZoom());
@@ -15,9 +15,9 @@ northEast = map.unproject([w, 0], map.getMaxZoom());
 const bounds = L.latLngBounds(southWest, northEast);
 
 L.tileLayer('/static/map/tiles/{z}-{x}-{y}.webp', {
-  tileSize: 256,
-  minZoom: 2,
-  maxZoom: 5,
+  tileSize: 96,
+  minZoom: 4,
+  maxZoom: 7,
   zoomOffset: 0,
   center: [0, 0],
   noWrap: true,
@@ -25,36 +25,55 @@ L.tileLayer('/static/map/tiles/{z}-{x}-{y}.webp', {
   bounds: bounds
 }).addTo(map);
 map.setMaxBounds(bounds);
+
 // Fetch locations dynamically
 const markers = [];
 fetch('/api/locations/')
   .then(response => response.json())
   .then(data => {
-    data.forEach(loc => {
+    data.forEach(location => {
       const marker = L.marker(
-        [loc.y, loc.x],
+        [location.y, location.x],
         {
           icon: L.icon({
-            iconUrl: loc.icon,
+            iconUrl: 'media/photos/' + location.icon + '.jpeg',
             iconSize: [64, 64],
-            className: 'map-marker-0',
+            className: 'map-marker-0'
           })
         }
       ).addTo(map);
-      marker.bindPopup("<b>" + loc.name + "</b>");
-
+      marker.bindPopup("<b>" + location.name + "</b>");
       markers.push({ name: location.name, marker: marker });
 
-      const li = document.createElement('li');
-      li.textContent = loc.name;
-      li.addEventListener('click', () => {
-        debugger;
-        map.panTo(marker.getLatLng(), { animate: true });
-        marker.openPopup();
-      });
+      const li = getMarkerLegendTemplate(location, marker);
       document.getElementById('legend-list').appendChild(li);
     });
   });
+
+function getMarkerLegendTemplate(location, marker) {
+  const li = document.createElement('li');
+  const contentDiv = document.createElement('div');
+  const nameH4 = document.createElement('h4');
+  nameH4.innerText = location.name;
+  nameH4.style.color = '#000';
+
+  const logoDiv = document.createElement('div');
+  const logo = document.createElement('img');
+  logo.style.width = '32px';
+  logo.style.height = '32px';
+  logo.classList.add('map-marker-0');
+  logoDiv.appendChild(logo);
+
+  contentDiv.appendChild(logoDiv);
+  contentDiv.appendChild(nameH4);
+  li.appendChild(contentDiv);
+
+  li.addEventListener('click', () => {
+    map.setView([location.y, location.x], 7);
+    marker.openPopup();
+  });
+  return li;
+}
 
 document.getElementById('legend-toggle').addEventListener('click', (e) => {
   const legend = document.getElementById('legend');
