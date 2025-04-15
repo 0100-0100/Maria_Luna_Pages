@@ -90,7 +90,7 @@ header aside {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #1C1C1C30;
+  background-color: #1C1C1CAA;
   backdrop-filter: blur(3px);
   translate: -100%;
   transition: translate var(--nav-animation-timing);
