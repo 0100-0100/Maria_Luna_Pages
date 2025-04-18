@@ -1,11 +1,11 @@
 .carousel-section {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 }
 
 #map-section {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -29,14 +29,33 @@
 
 #environment-section {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   padding-left: 20px;
   padding-right: 20px;
 }
 
 #places-section {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   padding-left: 20px;
   padding-right: 20px;
 }
+
+.map-image-wrapper {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.map-image {
+  max-width: 75vw;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+/* .map-image:hover { */
+/*   transform: scale(1.02); */
+/* } */
