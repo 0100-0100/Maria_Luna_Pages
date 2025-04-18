@@ -1,5 +1,5 @@
 footer {
-  width: 100vw;
+  width: 100%;
   background-color: var(--menu-toggle-foreground);
   color: var(--menu-toggle-background);
   display: flex;
