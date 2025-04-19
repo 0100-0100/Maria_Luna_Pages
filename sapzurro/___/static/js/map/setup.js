@@ -1,13 +1,22 @@
 const w = 8192;
 const h = 5851;
+const legend = document.getElementById('legend');
+const legendButton = document.getElementById('legend-toggle');
+legendButton.addEventListener('click', toggleLegend);
+
+function toggleLegend() {
+  legend.classList.toggle('visible');
+  legendButton.innerText = legendButton.innerText === 'Show Legend' ? 'Hide Legend' : 'Show Legend';
+}
 
 const map = L.map('map', {
   crs: L.CRS.Simple,
   minZoom: 4,
   maxZoom: 7,
   zoomControl: false,
-  attributionControl: false
- }).setView([-32, 32], 4);
+  attributionControl: false,
+  zoomSnap: 0
+ }).setView([-32, 32], 5);
 
 L.control.zoom({ position: 'bottomleft' }).addTo(map);
 const southWest = map.unproject([0, h], map.getMaxZoom());
@@ -19,14 +28,14 @@ L.tileLayer('/static/map/tiles/{z}-{x}-{y}.webp', {
   minZoom: 4,
   maxZoom: 7,
   zoomOffset: 0,
-  center: [0, 0],
+  center: [-32, 32],
   noWrap: true,
   tms: false,
   bounds: bounds
 }).addTo(map);
+
 map.setMaxBounds(bounds);
 
-// Fetch locations dynamically
 const markers = [];
 fetch('/api/locations/')
   .then(response => response.json())
@@ -69,15 +78,9 @@ function getMarkerLegendTemplate(location, marker) {
   li.appendChild(contentDiv);
 
   li.addEventListener('click', () => {
+    toggleLegend();
     map.setView([location.y, location.x], 7);
     marker.openPopup();
   });
   return li;
 }
-
-document.getElementById('legend-toggle').addEventListener('click', (e) => {
-  const legend = document.getElementById('legend');
-  legend.classList.toggle('visible');
-  e.target.innerText = e.target.innerText === 'Show Legend' ? 'Hide Legend' : 'Show Legend';
-  legend.style.display = (legend.style.display === 'none' || legend.style.display === '') ? 'block' : 'none';
-});
