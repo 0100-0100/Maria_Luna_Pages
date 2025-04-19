@@ -1,10 +1,11 @@
+/* Map section ----------------------------------------------------------- */
 .carousel-section {
   height: 100vh;
   width: 100%;
 }
 
+/* Map section ----------------------------------------------------------- */
 #map-section {
-  height: 100vh;
   width: 100%;
   padding-left: 20px;
   padding-right: 20px;
@@ -27,20 +28,6 @@
   font-size: 2rem;
 }
 
-#environment-section {
-  height: 100vh;
-  width: 100%;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-#places-section {
-  height: 100vh;
-  width: 100%;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
 .map-image-wrapper {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -56,6 +43,18 @@
   transition: transform 0.3s ease;
 }
 
-/* .map-image:hover { */
-/*   transform: scale(1.02); */
-/* } */
+/* Environment section ------------------------------------------------------ */
+#environment-section {
+  height: 100vh;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Places section ----------------------------------------------------------- */
+#places-section {
+  height: 100vh;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
