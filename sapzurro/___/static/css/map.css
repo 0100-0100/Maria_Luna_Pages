@@ -1,9 +1,3 @@
-.leaflet-zoom-anim
-.leaflet-zoom-animated {
-  transition-timing-function: linear;
-  transition-duration: 1ms;
-}
-
 #map {
   width: 100vw;
   height: calc(100vh - 52px);
