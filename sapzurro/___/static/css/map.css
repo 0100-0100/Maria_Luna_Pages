@@ -1,3 +1,9 @@
+.leaflet-zoom-anim
+.leaflet-zoom-animated {
+  transition-timing-function: linear;
+  transition-duration: 1ms;
+}
+
 #map {
   width: 100vw;
   height: calc(100vh - 52px);
@@ -10,7 +16,7 @@
 
 .custom-control {
   position: absolute;
-  bottom: 10px; /* above zoom buttons */
+  bottom: 10px;
   right: 10px;
   background: white;
   padding: 8px;
@@ -56,6 +62,7 @@
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+  display: block;
 }
 
 .legend-box h4 {
