@@ -16,7 +16,7 @@ const map = L.map('map', {
   zoomControl: false,
   attributionControl: false,
   zoomSnap: 0
- }).setView([-32, 32], 5);
+ }).setView([-32, 32], 4);
 
 L.control.zoom({ position: 'bottomleft' }).addTo(map);
 const southWest = map.unproject([0, h], map.getMaxZoom());
@@ -31,7 +31,10 @@ L.tileLayer('/static/map/tiles/{z}-{x}-{y}.webp', {
   center: [-32, 32],
   noWrap: true,
   tms: false,
-  bounds: bounds
+  bounds: bounds,
+  unloadInvisibleTiles: false,
+  updateWhenIdle: false,
+  keepBuffer: 1000
 }).addTo(map);
 
 map.setMaxBounds(bounds);
