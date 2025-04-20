@@ -1,9 +1,11 @@
 from django.core.management.base import BaseCommand
-from map.models import Location
-from core.models import Photo
+from django.core.files import File
 
-import pandas as pd
+from map.models import Location, MapLogoIcon
+
 import numpy as np
+import pandas as pd
+from os import listdir
 
 G = '\033[92m'
 Re = '\033[0m'
@@ -45,6 +47,18 @@ class Command(BaseCommand):
             # location_instance.map_location_marker.set([photo])
             print(f'Saved {G}{location_instance}{Re}!')
 
+            location_instance.save()
+
+            # Add logos for each Location.
+            for logo_image_filename in listdir("./logos"):
+                if logo_image_filename.startswith(str(index + 1) + '.'):
+                    with open("./logos/" + logo_image_filename, "rb") as f:
+                        logo_icon_instance = MapLogoIcon(
+                            name=location_instance.name,
+                            image=File(f)
+                        )
+                        logo_icon_instance.save()
+            location_instance.icon = logo_icon_instance
             location_instance.save()
 
         return self.stdout.write(
