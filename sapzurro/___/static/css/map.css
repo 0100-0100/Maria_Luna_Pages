@@ -1,11 +1,12 @@
 #map {
   width: 100vw;
-  height: calc(100vh - 52px);
+  height: calc(100vh - 50px);
 }
 
 .map-marker-0 {
-  border: solid 3px #0F0;
+  border: solid 2px #02CCB2;
   border-radius: 32px;
+  background-color: #FFF;
 }
 
 .custom-control {
