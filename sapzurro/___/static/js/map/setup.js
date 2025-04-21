@@ -48,8 +48,8 @@ fetch('/api/locations/')
         [location.y, location.x],
         {
           icon: L.icon({
-            iconUrl: 'media/photos/' + location.icon + '.jpeg',
-            iconSize: [64, 64],
+            iconUrl: location.icon_url ? location.icon_url : '/static/images/question-sign.webp',
+            iconSize: [32, 32],
             className: 'map-marker-0'
           })
         }
@@ -73,6 +73,7 @@ function getMarkerLegendTemplate(location, marker) {
   const logo = document.createElement('img');
   logo.style.width = '32px';
   logo.style.height = '32px';
+  logo.src = location.icon_url ? location.icon_url : '/static/images/question-sign.webp';
   logo.classList.add('map-marker-0');
   logoDiv.appendChild(logo);
 
