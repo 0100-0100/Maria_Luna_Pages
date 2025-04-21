@@ -50,6 +50,7 @@ class Command(BaseCommand):
             location_instance.save()
 
             # Add logos for each Location.
+            logo_icon_instance = None
             for logo_image_filename in listdir("./logos"):
                 if logo_image_filename.startswith(str(index + 1) + '.'):
                     with open("./logos/" + logo_image_filename, "rb") as f:
