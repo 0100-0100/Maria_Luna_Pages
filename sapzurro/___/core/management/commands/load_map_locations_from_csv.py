@@ -28,6 +28,7 @@ class Command(BaseCommand):
         """
         Create Locations based on the .csv file provided.
         """
+        MapLogoIcon.objects.all().delete()
         Location.objects.all().delete()
         # photo = Photo.objects.all()[0]
 
