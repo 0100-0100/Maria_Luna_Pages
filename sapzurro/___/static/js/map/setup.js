@@ -71,8 +71,8 @@ function getMarkerLegendTemplate(location, marker) {
 
   const logoDiv = document.createElement('div');
   const logo = document.createElement('img');
-  logo.style.width = '32px';
-  logo.style.height = '32px';
+  logo.style.width = '64px';
+  logo.style.height = '64px';
   logo.src = location.icon_url ? location.icon_url : '/static/images/question-sign.webp';
   logo.classList.add('map-marker-0');
   logoDiv.appendChild(logo);
