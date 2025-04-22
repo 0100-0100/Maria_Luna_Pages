@@ -27,7 +27,7 @@
   position: fixed;
   bottom: 120px;
   left: 10px;
-  width: 98vw;
+  width: calc(100vw - 20px);
   height: 80vh;
   background-color: #CFD2B4;
   color: #000;
@@ -42,35 +42,29 @@
   transition: opacity 1300ms ease-in-out, transform 1300ms ease-in-out;
 }
 
-@media (max-width: 376px) {
-  .legend-box {
-    width: 200px;
-  }
-}
-
-@media (min-width: 377px) and (max-width: 768px) {
-  .legend-box {
-    width: 300px;
-  }
-}
-
 .legend-box.visible {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 
 .legend-box h4 {
   margin: 0 0 5px;
-  font-size: 32px;
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 1px;
 }
 
 .legend-box ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  max-height: 80%;
+  height: ;
+  max-height: 66.5%;
   overflow-y: auto;
   border-radius: 32px;
 }
