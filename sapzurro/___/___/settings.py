@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
+    'ec2-15-228-18-151.sa-east-1.compute.amazonaws.com'
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
@@ -129,7 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-# STATIC_ROOT = BASE_DIR / 'static/'
+STATIC_ROOT = BASE_DIR / '/var/www/sapzurro/static/'
 STATICFILES_DIRS = (
     BASE_DIR / 'static/',
 )
