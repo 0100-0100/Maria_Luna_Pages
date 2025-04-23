@@ -1,0 +1,25 @@
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name _;
+
+    location /static/ {
+        autoindex on;
+	alias /var/www/sapzurro/static/;
+    }
+
+    location /media/ {
+        autoindex on;
+        alias /home/ubuntu/Maria_Luna_Pages/sapzurro/___/media/;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/tmp/sapzurro.sock;
+    }
+}
