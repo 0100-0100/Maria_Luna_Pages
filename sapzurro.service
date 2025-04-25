@@ -1,0 +1,23 @@
+[Unit]
+Description=Gunicorn Instance running the Sapzurro page Django project
+After=network.target
+
+[Service]
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/Maria_Luna_Pages/sapzurro/___
+Environment="PATH=/home/ubuntu/Maria_Luna_Pages/.venv/bin"
+
+ExecStart=/home/ubuntu/Maria_Luna_Pages/.venv/bin/gunicorn \
+  --workers 10 \
+  --timeout 1000 \
+  --bind unix:/tmp/sapzurro.sock \
+  --capture-output \
+  --log-level debug \
+  --error-logfile /home/ubuntu/sapzurro_error.log \
+  --access-logfile /home/ubuntu/sapzurro_access.log \
+  --access-logformat '%(h)s %(l)s %(u)s %(t)s %(s)s "%(r)s" %(b)s "%(f)s" "%(a)s"' \
+  '___.wsgi:application'
+
+[Install]
+WantedBy=multi-user.target
