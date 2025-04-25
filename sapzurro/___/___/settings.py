@@ -28,7 +28,9 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'ec2-15-228-18-151.sa-east-1.compute.amazonaws.com'
+    'ec2-15-228-18-151.sa-east-1.compute.amazonaws.com',
+    'mapasapzurro.co',
+    'www.mapasapzurro.co'
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
