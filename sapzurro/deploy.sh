@@ -8,7 +8,7 @@ wait_with_message() {
         i=$(( (i + 1) % 4 ))
         printf "\033[32m%c \033[0m%s\r" "${spin:$i:1}" "$message..."
     done
-    wait "$pid" #2>/dev/null
+    wait "$pid" 2>/dev/null
     sleep 0.5
     echo "----------------------------------------"
     printf "\033[92m✓ \033[0m%s\n\n" "$message.       "
@@ -16,24 +16,23 @@ wait_with_message() {
 
 cd Maria_Luna_Pages/
 
-git pull origin main &
+git pull origin main & 2>&1
 wait_with_message $! "Pulling from main"
 
 source .venv/bin/activate
 cd sapzurro/___/
 
-python3 manage.py collectstatic --noinput &
+python3 manage.py collectstatic --noinput & 2>&1
 wait_with_message $! "Collecting Static"
 
-python3 manage.py makemigrations &
+python3 manage.py makemigrations & 2>&1
 wait_with_message $! "Making migrations"
 
-python3 manage.py migrate &
+python3 manage.py migrate & 2>&1
 wait_with_message $! "Migrating"
 
-sudo service sapzurro restart &
+sudo service sapzurro restart & 2>&1
 wait_with_message $! "Restarting sapzurro service"
 
-
 echo "----------------------------------------"
-echo -e "\033[92m✓ \033[0mSuccessfully Updated Sapzurro Page."
+echo -e "\033[92m✓ \033[0mSuccessfully Updated Sapzurro Page.\n "
