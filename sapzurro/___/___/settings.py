@@ -20,21 +20,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = env('DJANGO_SECRET_KEY')
 
-DEBUG = True
-SECURE_HSTS_SECONDS = 60
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_HSTS_PRELOAD = True
+DEBUG = env('DJANGO_DEBUG')
+
+if not DEBUG:
+    SECURE_HSTS_SECONDS = 60
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_PRELOAD = True
 
 ALLOWED_HOSTS = [
+    'localhost' if DEBUG else '',
+    '127.0.0.1' if DEBUG else '',
     'mapasapzurro.co',
     'www.mapasapzurro.co'
 ]
 
-# CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWED_ORIGINS = [
+    'http://localhost' if DEBUG else '',
     'https://www.mapasapzurro.co',
     'https://mapasapzurro.co'
 ]
@@ -132,7 +136,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / '/var/www/sapzurro/static/'
+if not DEBUG:
+    STATIC_ROOT = BASE_DIR / '/var/www/sapzurro/static/'
 STATICFILES_DIRS = (
     BASE_DIR / 'static/',
 )
