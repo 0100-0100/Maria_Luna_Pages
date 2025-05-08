@@ -25,6 +25,7 @@
   height: 80vh;
   width: 100vw;
   padding: 0;
+  position: relative;
 }
 
 #map-section h1 {
