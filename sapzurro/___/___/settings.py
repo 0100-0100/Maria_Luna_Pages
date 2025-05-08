@@ -31,17 +31,23 @@ if not DEBUG:
     SECURE_HSTS_PRELOAD = True
 
 ALLOWED_HOSTS = [
-    'localhost' if DEBUG else '',
-    '127.0.0.1' if DEBUG else '',
     'mapasapzurro.co',
     'www.mapasapzurro.co'
 ]
+if DEBUG:
+    ALLOWED_HOSTS += [
+        'localhost',
+        '127.0.0.1',
+    ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost' if DEBUG else '',
     'https://www.mapasapzurro.co',
     'https://mapasapzurro.co'
 ]
+if DEBUG:
+    CORS_ALLOWED_ORIGINS += [
+        'http://localhost',
+    ]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
