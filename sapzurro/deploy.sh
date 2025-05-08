@@ -8,13 +8,11 @@ wait_with_message() {
         i=$(( (i + 1) % 4 ))
         printf "\033[32m%c \033[0m%s\r" "${spin:$i:1}" "$message..."
     done
-    wait "$pid" 2>/dev/null
-    sleep 0.5
+    wait "$pid"
+    sleep 1
     echo "----------------------------------------"
     printf "\033[92m✓ \033[0m%s\n\n" "$message.       "
 }
-
-source .bashrc
 
 cd Maria_Luna_Pages/
 
@@ -24,9 +22,6 @@ wait_with_message $! "Pulling from main"
 source .venv/bin/activate
 cd sapzurro/___/
 
-python3 manage.py check --deploy & 2>&1
-wait_with_message $! "Running 'python3 manage.py check --deploy'"
-
 python3 manage.py collectstatic --noinput & 2>&1
 wait_with_message $! "Collecting Static"
 
@@ -35,6 +30,10 @@ wait_with_message $! "Making migrations"
 
 python3 manage.py migrate & 2>&1
 wait_with_message $! "Migrating"
+
+source ~/.bashrc
+python3 manage.py check --deploy & 2>&1
+wait_with_message $! "Running 'python3 manage.py check --deploy'"
 
 sudo service sapzurro restart & 2>&1
 wait_with_message $! "Restarting sapzurro service"
