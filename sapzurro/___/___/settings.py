@@ -17,8 +17,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-SECRET_KEY = env('DJANGO_SECRET_KEY')
-DEBUG = env('DJANGO_DEBUG')
+SECRET_KEY = env('DJANGO_SECRET_KEY', None)
+DEBUG = env('DJANGO_DEBUG', None)
 
 if not DEBUG:
     SECURE_HSTS_SECONDS = 60
