@@ -14,6 +14,8 @@ wait_with_message() {
     printf "\033[92m✓ \033[0m%s\n\n" "$message.       "
 }
 
+source .bashrc
+
 cd Maria_Luna_Pages/
 
 git pull origin main & 2>&1
@@ -21,6 +23,9 @@ wait_with_message $! "Pulling from main"
 
 source .venv/bin/activate
 cd sapzurro/___/
+
+python3 manage.py check --deploy & 2>&1
+wait_with_message $! "Running 'python3 manage.py check --deploy'"
 
 python3 manage.py collectstatic --noinput & 2>&1
 wait_with_message $! "Collecting Static"
