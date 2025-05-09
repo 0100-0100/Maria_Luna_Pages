@@ -19,14 +19,18 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
-from views.views import home, map_view, know_about
+from views.views import (
+    view_about_sapzurro, view_about_us, view_home, view_map, view_mapaventura
+)
 from map.views import LocationListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
-    path('map', map_view),
-    path('know-about', know_about),
+    path('', view_home),
+    path('map', view_map),
+    path('lo-que-debes-saber-de-sapzurro', view_about_sapzurro),
+    path('mapaventura', view_mapaventura),
+    path('lugares-imperdibles', view_about_us),
 
     path('api/locations/', LocationListView.as_view(), name='location-list'),
 
