@@ -1,37 +1,56 @@
+"""Views Module."""
 from django.shortcuts import render
-from django.conf import settings
-from django.templatetags.static import static
-import os
 
-colors = {
+COLORS = {
     'white': '#FFFFFF',
     'black': '#1C1C1C',
+    'yellow': '#F1B603',
     'main-1': '#1C4036',
     'main-2': '#3BC2AB',
     'main-3': '#6FAE43',
-    'yellow': '#F1B603'
 }
 
-# Create your views here.
-def home(request):
+
+def view_home(request):
+    """Home view."""
     context = {
-        'foreground_color': colors['yellow'],
-        'background_color': colors['main-1'],
+        'foreground_color': COLORS['main-2'],
+        'background_color': COLORS['white'],
     }
     return render(request, 'home.html', context)
 
 
-def map_view(request):
+def view_map(request):
+    """Map view."""
     context = {
-        'foreground_color': colors['yellow'],
-        'background_color': colors['white']
+        'foreground_color': COLORS['yellow'],
+        'background_color': COLORS['white']
     }
     return render(request, 'map.html', context)
 
 
-def know_about(request):
+def view_about_sapzurro(request):
+    """Know About view."""
     context = {
-        'foreground_color': colors['main-3'],
-        'background_color': colors['white']
+        'foreground_color': COLORS['main-2'],
+        'background_color': COLORS['white']
+    }
+    return render(request, 'know_about.html', context)
+
+
+def view_mapaventura(request):
+    """Mapaventura view."""
+    context = {
+        'foreground_color': COLORS['main-3'],
+        'background_color': COLORS['white']
+    }
+    return render(request, 'know_about.html', context)
+
+
+def view_about_us(request):
+    """About us view."""
+    context = {
+        'foreground_color': COLORS['white'],
+        'background_color': COLORS['black']
     }
     return render(request, 'know_about.html', context)
