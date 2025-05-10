@@ -2,15 +2,15 @@
 {% load static %}
 
 {% block styles %}
-  <link rel="stylesheet" href="{% static 'css/map.css' %}">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="{% static 'css/map.css' %}">
 {% endblock %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
   <section style="position: relative;">
-    <img alt="Map Background" src="{% static 'images/map-background.png' %}"/>
+    <img id="map-background" alt="Map Background" src="{% static 'map/background.webp' %}"/>
     <div id="map"></div>
     <div id="legend-toggle" class="leaflet-bar custom-control">
       Show Legend
