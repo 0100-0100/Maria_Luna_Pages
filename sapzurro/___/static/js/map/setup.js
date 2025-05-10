@@ -24,7 +24,7 @@ let northEast = map.unproject([w - 128, 0], map.getMaxZoom());
 let bounds = L.latLngBounds(southWest, northEast);
 map.setMaxBounds(bounds);
 
-L.tileLayer('/static/map/tiles_files/{z}/{x}_{y}.webp', {
+L.tileLayer('/static/map/tiles/{z}/{x}_{y}.webp', {
   tileSize: 96,
   minZoom: 0,
   maxZoom: 4,
