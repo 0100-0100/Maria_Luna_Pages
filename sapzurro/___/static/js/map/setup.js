@@ -51,7 +51,7 @@ fetch('/api/locations/')
             draggable: DRAGABLE_MAP_MARKERS,
             icon: L.icon({
               iconUrl: location.icon_url ? location.icon_url : '/static/images/question-sign.webp',
-              iconSize: [MARKER_SIZE, MARKER_SIZE],
+              iconSize: [scaleMarkerSize(map.getZoom()), scaleMarkerSize(map.getZoom())],
               className: 'map-marker-0'
             })
           }
@@ -88,3 +88,28 @@ function getMarkerLegendTemplate(location, marker) {
   });
   return li;
 }
+
+const ZOOM_MIN = 0;
+const ZOOM_MAX = 4;
+const MIN_MARKER_SIZE = 8;
+const MAX_MARKER_SIZE = 64;
+
+function scaleMarkerSize(zoom) {
+  const scale = (zoom - ZOOM_MIN) / (ZOOM_MAX - ZOOM_MIN);
+  return MIN_MARKER_SIZE + scale * (MAX_MARKER_SIZE - MIN_MARKER_SIZE);
+}
+
+function updateMarkerSizes() {
+  const zoom = map.getZoom();
+  const size = scaleMarkerSize(zoom);
+  markers.forEach(({ marker, locationId, name }) => {
+    const icon = marker.getIcon();
+    const newIcon = L.icon({
+      ...icon.options,
+      iconSize: [size, size],
+    });
+    marker.setIcon(newIcon);
+  });
+}
+
+map.on('zoom', updateMarkerSizes);
