@@ -1,5 +1,5 @@
-const w = 8192;
-const h = 5851;
+const w = 8051;
+const h = 5716;
 
 function toggleLegend() {
   legend.classList.toggle('visible');
@@ -15,12 +15,12 @@ const map = L.map('map', {
   maxZoom: 4,
   zoomControl: false,
   attributionControl: false,
-  zoomSnap: 0.01
- }).setView([-32, 32], 0);
+  zoomSnap: 0.5
+}).setView([-32, 32], 0);
 
 L.control.zoom({ position: 'bottomleft' }).addTo(map);
-let southWest = map.unproject([0, h - 90], map.getMaxZoom());
-let northEast = map.unproject([w - 128, 0], map.getMaxZoom());
+let southWest = map.unproject([0, h], map.getMaxZoom());
+let northEast = map.unproject([w, 0], map.getMaxZoom());
 let bounds = L.latLngBounds(southWest, northEast);
 map.setMaxBounds(bounds);
 
@@ -39,6 +39,7 @@ L.tileLayer('/static/map/tiles/{z}/{x}_{y}.webp', {
 }).addTo(map);
 
 const markers = [];
+const MARKER_SIZE = 64;
 fetch('/api/locations/')
   .then(response => response.json())
   .then(data => {
@@ -47,15 +48,16 @@ fetch('/api/locations/')
         const marker = L.marker(
           [location.y, location.x],
           {
+            draggable: DRAGABLE_MAP_MARKERS,
             icon: L.icon({
               iconUrl: location.icon_url ? location.icon_url : '/static/images/question-sign.webp',
-              iconSize: [32, 32],
+              iconSize: [MARKER_SIZE, MARKER_SIZE],
               className: 'map-marker-0'
             })
           }
         ).addTo(map);
         marker.bindPopup("<b>" + location.name + "</b>");
-        markers.push({ name: location.name, marker: marker });
+        markers.push({ locationId: location.id, name: location.name, marker: marker });
         const li = getMarkerLegendTemplate(location, marker);
         document.getElementById('legend-list').appendChild(li);
     });
@@ -70,12 +72,11 @@ function getMarkerLegendTemplate(location, marker) {
 
   const logoDiv = document.createElement('div');
   const logo = document.createElement('img');
-  logo.style.width = '32px';
-  logo.style.height = '32px';
+  logo.style.width = MARKER_SIZE + 'px';
+  logo.style.height = MARKER_SIZE + 'px';
   logo.src = location.icon_url ? location.icon_url : '/static/images/question-sign.webp';
   logo.classList.add('map-marker-0');
   logoDiv.appendChild(logo);
-
   contentDiv.appendChild(logoDiv);
   contentDiv.appendChild(nameH4);
   li.appendChild(contentDiv);

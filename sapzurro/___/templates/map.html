@@ -12,6 +12,13 @@
   <section style="position: relative;">
     <img id="map-background" alt="Map Background" src="{% static 'map/background.webp' %}"/>
     <div id="map"></div>
+    {% if user.is_staff %}
+      <div style="display: flex; justify-content: center; width: 100%; position: absolute; top: 60px;">
+        <button id="save-btn" class="main-button" style="z-index: 1000;">
+          Save Marker Locations.
+        </button>
+      </div>
+    {% endif %}
     <div id="legend-toggle" class="leaflet-bar custom-control">
       Show Legend
     </div>
@@ -23,20 +30,54 @@
       <h3><strong>Principales puntos de interes</strong></h3>
       <div class="">
         <img
-          src="/media/map_logos/logos/32_wwzMKdS.JPG"
+          src="/media/map_logos/logos/JAC_Logo.jpg"
           class="map-marker-0"
           style="width: 64px; height: 64px;"
         >
         <h4 style="color: rgb(0, 0, 0);">Junta de Acción Comunal Sapzurro</h4>
       </div>
       <hr/>
-      <ul id="legend-list">
-      </ul>
+      <ul id="legend-list"></ul>
     </div>
   </section>
 {% endblock %}
 
 {% block script %}
+  <script>
+  let DRAGABLE_MAP_MARKERS = {{ user.is_staff|yesno:"true,false" }};
+  </script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="{% static "js/map/setup.js" %}"></script>
+  {% if user.is_staff %}
+    <script>
+    document.getElementById('save-btn').addEventListener('click', () => {
+      const updated = markers.map(marker => {
+        const pos = marker.marker.getLatLng();
+        return {
+          id: marker.locationId,
+          y: pos.lat,
+          x: pos.lng
+        };
+      });
+
+      fetch("{% url 'bulk_update_locations' %}", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': '{{ csrf_token }}'
+        },
+        body: JSON.stringify({ locations: updated })
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.status === 'success') {
+            alert("Changes saved!");
+          } else {
+            alert("Failed: " + data.message);
+          }
+        })
+        .catch(err => alert("Error: " + err));
+    });
+    </script>
+  {% endif %}
 {% endblock %}
