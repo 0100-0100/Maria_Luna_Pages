@@ -9,9 +9,14 @@
     <meta name="decription" content="Sapzurro interactive map web page, here you will find important and interesting places when visiting Sapzurro.">
     <meta name="author" content="Diego Lopez">
     <meta name="copyright" content="Mapaventura">
-    <link rel="icon" type="image/x-icon" href="{% static 'images/mapaventura-favicon.ico' %}">
 
-    <title>MAPAVENTURA | Sapzurro | {% block title %}{% endblock %}</title>
+    {% if DEBUG is true %}
+      <link rel="icon" type="image/x-icon" href="{% static 'images/mapaventura-favicon-dev.ico' %}">
+    {% else %}
+      <link rel="icon" type="image/x-icon" href="{% static 'images/mapaventura-favicon.ico' %}">
+    {% endif %}
+
+    <title>Mapa Sapzurro | {% block title %}{% endblock %}</title>
     <style>
     :root {
       --menu-toggle-foreground: {{ foreground_color }};
@@ -23,10 +28,13 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/header.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/footer.css' %}"/>
+
     {% block styles %}
     {% endblock %}
+
   </head>
-  <body id="main" style="font-family: Thrillers;">
+
+  <body style="font-family: Thrillers;">
 
     {% include 'header.html' %}
 
@@ -41,5 +49,6 @@
 
     {% block script %}
     {% endblock %}
+
   </body>
 </html>
