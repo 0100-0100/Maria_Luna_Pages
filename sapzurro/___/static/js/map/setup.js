@@ -16,7 +16,7 @@ const map = L.map('map', {
   zoomControl: false,
   attributionControl: false,
   zoomSnap: 0.5
-}).setView([-32, 32], 0);
+}).setView([-32, 32], 1.5);
 
 L.control.zoom({ position: 'bottomleft' }).addTo(map);
 let southWest = map.unproject([0, h], map.getMaxZoom());
