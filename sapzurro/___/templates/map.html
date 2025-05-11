@@ -13,7 +13,11 @@
     <img id="map-background" alt="Map Background" src="{% static 'map/background.webp' %}"/>
     <div id="map"></div>
     {% if user.is_staff %}
-      <button id="save-btn" style="z-index: 100;">Save Changes</button>
+      <div style="display: flex; justify-content: center; width: 100%; position: absolute; top: 60px;">
+        <button id="save-btn" class="main-button" style="z-index: 1000;">
+          Save Marker Locations.
+        </button>
+      </div>
     {% endif %}
     <div id="legend-toggle" class="leaflet-bar custom-control">
       Show Legend
