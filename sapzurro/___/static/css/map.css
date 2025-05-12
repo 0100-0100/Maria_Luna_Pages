@@ -15,18 +15,41 @@
 }
 
 .map-marker-0 {
-  border: solid 2px #02CCB2;
+  border: solid 5px #02CCB2;
   border-radius: 32px;
   background-color: #FFF;
 }
 
-/* Marker Pop up information container. ____________________________________ */
-.marker-info-container {
-}
 
-.marker-info-container h3 {
+/* Marker Pop up information container. ____________________________________ */
+.marker-info-container h2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
   color: #000;
 }
+
+.marker-info-container a {
+  text-decoration: none;
+  color: #000;
+}
+
+.marker-info-container a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.marker-info-container h2 a:focus::after {
+  outline: 2px solid blue;
+}
+
 
 /* Controller inputs and buttons. __________________________________________ */
 .custom-control {
@@ -42,6 +65,7 @@
   z-index: 1000;
   user-select: none;
 }
+
 
 /* Legend Box. _____________________________________________________________ */
 .legend-box {
