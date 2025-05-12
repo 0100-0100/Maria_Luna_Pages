@@ -62,32 +62,63 @@ fetch('/api/locations/')
             })
           }
         ).addTo(map);
+
+        const socialLinks = [];
+
+        if (location.phone) {
+          socialLinks.push(`
+            <h2>
+              ${whatsappIcon.outerHTML}
+              <a target="_blank" href="https://wa.me/${location.phone.replace('+', '')}?text=Hola%2C%20%5CnVengo%20desde%20mapasapzurro.co%20y%20queria%20saber%20mas%20acerca%20de%20ustedes">${location.phone}</a>
+            </h2>
+          `);
+        }
+
+        if (location.instagram_link) {
+          const instagramHandle = location.instagram_link.split('/').pop();
+          socialLinks.push(`
+           <h2>
+             ${instagramIcon.outerHTML}
+             <a target="_blank" href="${location.instagram_link}">@${instagramHandle}</a>
+           </h2>
+          `);
+        }
+
+        if (location.facebook_link) {
+          const facebookHandle = location.facebook_link.split('/').pop();
+          socialLinks.push(`
+            <h2>
+              ${facebookIcon.outerHTML}
+              <a target="_blank" href="${location.facebook_link}">@${facebookHandle}</a>
+            </h2>
+          `);
+        }
+
+        if (location.website_link) {
+          socialLinks.push(`
+            <h2>
+              ${websiteIcon.outerHTML}
+              <a target="_blank" href="${location.website_link}">${location.website_link}</a>
+            </h2>
+          `);
+        }
+
+        if (location.email) {
+          socialLinks.push(`
+            <h2>
+              ${mailIcon.outerHTML}
+              <a target="_blank" href="mailto:${location.email}">${location.email}</a>
+            </h2>
+          `);
+        }
+
         marker.bindPopup(`
           <div class="marker-info-container">
             <img class="marker-info-logo" height="128px" width="128px" alt="${location.name}" src="${marker.getIcon().options.iconUrl}"/>
             <h3>${location.name}</h3>
             <p>${location.description}</p>
             <div>
-              <h2>
-                ${facebookIcon.outerHTML}
-                <a href="#">AAA</a>
-              </h2>
-              <h2>
-                ${instagramIcon.outerHTML}
-                <a href="#">AAA</a>
-              </h2>
-              <h2>
-                ${mailIcon.outerHTML}
-                <a href="#">AAA</a>
-              </h2>
-              <h2>
-                ${websiteIcon.outerHTML}
-                <a href="#">AAA</a>
-              </h2>
-              <h2>
-                ${whatsappIcon.outerHTML}
-                <a href="#">AAA</a>
-              </h2>
+              ${socialLinks.join('')}
             </div>
           </div>
         `);
@@ -96,7 +127,6 @@ fetch('/api/locations/')
         document.getElementById('legend-list').appendChild(li);
     });
   });
-
 
 function getMarkerLegendTemplate(location, marker) {
   const li = document.createElement('li');
