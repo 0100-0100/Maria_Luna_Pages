@@ -7,7 +7,6 @@ const mailIcon = document.getElementById('mail-icon-svg');
 const websiteIcon = document.getElementById('website-icon-svg');
 const whatsappIcon = document.getElementById('whatsapp-icon-svg');
 
-
 function toggleLegend() {
   legend.classList.toggle('visible');
   legendButton.innerText = legendButton.innerText === 'Show Legend' ? 'Hide Legend' : 'Show Legend';
@@ -63,23 +62,41 @@ fetch('/api/locations/')
             })
           }
         ).addTo(map);
-        marker.bindPopup(
-          "<div class=\"marker-info-container\">" +
-          "<h3>" + location.name + "</h3>" +
-          "<div>" +
-          facebookIcon?.outerHTML +
-          instagramIcon?.outerHTML +
-          mailIcon?.outerHTML +
-          websiteIcon?.outerHTML +
-          whatsappIcon?.outerHTML +
-          "</div>" +
-          "</div>"
-        );
+        marker.bindPopup(`
+          <div class="marker-info-container">
+            <img class="marker-info-logo" height="128px" width="128px" alt="${location.name}" src="${marker.getIcon().options.iconUrl}"/>
+            <h3>${location.name}</h3>
+            <p>${location.description}</p>
+            <div>
+              <h2>
+                ${facebookIcon.outerHTML}
+                <a href="#">AAA</a>
+              </h2>
+              <h2>
+                ${instagramIcon.outerHTML}
+                <a href="#">AAA</a>
+              </h2>
+              <h2>
+                ${mailIcon.outerHTML}
+                <a href="#">AAA</a>
+              </h2>
+              <h2>
+                ${websiteIcon.outerHTML}
+                <a href="#">AAA</a>
+              </h2>
+              <h2>
+                ${whatsappIcon.outerHTML}
+                <a href="#">AAA</a>
+              </h2>
+            </div>
+          </div>
+        `);
         markers.push({ locationId: location.id, name: location.name, marker: marker });
         const li = getMarkerLegendTemplate(location, marker);
         document.getElementById('legend-list').appendChild(li);
     });
   });
+
 
 function getMarkerLegendTemplate(location, marker) {
   const li = document.createElement('li');
