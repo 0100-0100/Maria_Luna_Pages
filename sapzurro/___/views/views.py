@@ -1,5 +1,6 @@
 """Views Module."""
 from django.shortcuts import render
+from django.conf import settings
 
 COLORS = {
     'white': '#FFFFFF',
@@ -16,6 +17,7 @@ def view_home(request):
     context = {
         'foreground_color': COLORS['main-2'],
         'background_color': COLORS['white'],
+        'DEBUG': settings.DEBUG,
     }
     return render(request, 'home.html', context)
 
@@ -24,7 +26,8 @@ def view_map(request):
     """Map view."""
     context = {
         'foreground_color': COLORS['yellow'],
-        'background_color': COLORS['white']
+        'background_color': COLORS['white'],
+        'DEBUG': settings.DEBUG,
     }
     return render(request, 'map.html', context)
 
@@ -33,7 +36,8 @@ def view_about_sapzurro(request):
     """Know About view."""
     context = {
         'foreground_color': COLORS['main-2'],
-        'background_color': COLORS['white']
+        'background_color': COLORS['white'],
+        'DEBUG': settings.DEBUG,
     }
     return render(request, 'know_about.html', context)
 
@@ -42,7 +46,9 @@ def view_mapaventura(request):
     """Mapaventura view."""
     context = {
         'foreground_color': COLORS['main-3'],
-        'background_color': COLORS['white']
+        'background_color': COLORS['white'],
+        'DEBUG': settings.DEBUG,
+
     }
     return render(request, 'know_about.html', context)
 
@@ -51,6 +57,7 @@ def view_about_us(request):
     """About us view."""
     context = {
         'foreground_color': COLORS['white'],
-        'background_color': COLORS['black']
+        'background_color': COLORS['black'],
+        'DEBUG': settings.DEBUG,
     }
     return render(request, 'know_about.html', context)
