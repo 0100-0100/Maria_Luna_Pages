@@ -40,6 +40,15 @@
       <ul id="legend-list"></ul>
     </div>
   </section>
+  <section style="display: none;">
+    {% with SIZE=32 %}
+      {% include 'svg/facebook-icon.svg' %}
+      {% include 'svg/instagram-icon.svg' %}
+      {% include 'svg/mail-icon.svg' %}
+      {% include 'svg/website-icon.svg' %}
+      {% include 'svg/whatsapp-icon.svg' %}
+    {% endwith %}
+  </section>
 {% endblock %}
 
 {% block script %}
