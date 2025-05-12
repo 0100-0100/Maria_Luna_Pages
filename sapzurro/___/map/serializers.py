@@ -6,7 +6,10 @@ class LocationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Location
-        fields = ('id', 'name', 'x', 'y', 'icon_url')
+        fields = (
+            'id', 'name', 'description', 'phone', 'instagram_link',
+            'facebook_link', 'website_link', 'email', 'x', 'y', 'icon_url'
+        )
 
     def get_icon_url(self, location):
         request = self.context.get('request')
