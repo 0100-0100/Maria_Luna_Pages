@@ -1,6 +1,13 @@
 const w = 8051;
 const h = 5716;
 
+const facebookIcon = document.getElementById('facebook-icon-svg');
+const instagramIcon = document.getElementById('instagram-icon-svg');
+const mailIcon = document.getElementById('mail-icon-svg');
+const websiteIcon = document.getElementById('website-icon-svg');
+const whatsappIcon = document.getElementById('whatsapp-icon-svg');
+
+
 function toggleLegend() {
   legend.classList.toggle('visible');
   legendButton.innerText = legendButton.innerText === 'Show Legend' ? 'Hide Legend' : 'Show Legend';
@@ -56,7 +63,18 @@ fetch('/api/locations/')
             })
           }
         ).addTo(map);
-        marker.bindPopup("<b>" + location.name + "</b>");
+        marker.bindPopup(
+          "<div class=\"marker-info-container\">" +
+          "<h3>" + location.name + "</h3>" +
+          "<div>" +
+          facebookIcon?.outerHTML +
+          instagramIcon?.outerHTML +
+          mailIcon?.outerHTML +
+          websiteIcon?.outerHTML +
+          whatsappIcon?.outerHTML +
+          "</div>" +
+          "</div>"
+        );
         markers.push({ locationId: location.id, name: location.name, marker: marker });
         const li = getMarkerLegendTemplate(location, marker);
         document.getElementById('legend-list').appendChild(li);
