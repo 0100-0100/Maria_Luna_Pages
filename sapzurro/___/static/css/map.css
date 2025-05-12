@@ -20,6 +20,15 @@
   background-color: #FFF;
 }
 
+/* Marker Pop up information container. ____________________________________ */
+.marker-info-container {
+}
+
+.marker-info-container h3 {
+  color: #000;
+}
+
+/* Controller inputs and buttons. __________________________________________ */
 .custom-control {
   position: absolute;
   bottom: 10px;
@@ -34,6 +43,7 @@
   user-select: none;
 }
 
+/* Legend Box. _____________________________________________________________ */
 .legend-box {
   position: fixed;
   bottom: 120px;
