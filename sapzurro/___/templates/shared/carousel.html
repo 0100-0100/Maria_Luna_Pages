@@ -6,6 +6,11 @@
           class="carousel-image"
           data-src="{{ image.url }}"
           alt="Image {{ forloop.counter }}">
+        {% if show_description %}
+          <div>
+            <h1>{{ forloop.counter }}. {{ image.description }}</h1>
+          </div>
+        {% endif %}
       </div>
     {% endfor %}
   </div>

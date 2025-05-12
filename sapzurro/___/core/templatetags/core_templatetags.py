@@ -6,8 +6,10 @@ register = template.Library()
 
 @register.inclusion_tag("shared/carousel.html")
 def get_carousel(carousel_name):
+    carousel = Carousel.objects.get(name=carousel_name)
     return {
-        'images': Carousel.objects.get(name=carousel_name).get_image_urls()
+        'images': carousel.get_description_and_image_urls(),
+        'show_description': carousel.show_description,
     }
 
 @register.inclusion_tag("shared/know_about_section.html")

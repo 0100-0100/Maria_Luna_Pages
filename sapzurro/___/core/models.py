@@ -23,10 +23,10 @@ class Carousel(models.Model):
     show_description = models.BooleanField(default=False)
     images = models.ManyToManyField(Photo, related_name="carousels", blank=True)
 
-    def get_image_urls(self):
+    def get_description_and_image_urls(self):
         img_urls_list = []
         for _ in self.images.all():
-            img_urls_list.append({'url': _.image.url})
+            img_urls_list.append({'url': _.image.url, 'description': _.description})
         return img_urls_list
 
     def __str__(self):
