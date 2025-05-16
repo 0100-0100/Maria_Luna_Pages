@@ -36,12 +36,16 @@ class Carousel(models.Model):
         Photo, related_name="carousels", blank=True
     )
 
-    def get_description_and_image_urls(self):
+    def get_context_fields(self):
         """Return a list of all images for a related carousel."""
         img_urls_list = []
         for _ in self.images.all():
             img_urls_list.append(
-                {'url': _.image.url, 'description': _.description}
+                {
+                    'description': _.description,
+                    'name': _.name,
+                    'url': _.image.url
+                }
             )
         return img_urls_list
 
@@ -51,7 +55,7 @@ class Carousel(models.Model):
 
 
 class ShouldKnowSection(models.Model):
-    """Model representing the sections for the what you should know about view."""
+    """Sections for the "lo que debes saber de sapzurro" view."""
 
     name = models.CharField(max_length=255)
     title = models.CharField(max_length=255)
