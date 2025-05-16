@@ -1,14 +1,11 @@
 """Module storing the load."""
 from django.core.management.base import BaseCommand
 from django.core.files import File
-from django.conf import settings
 
 from core.models import Photo, Carousel
 
-from os.path import expanduser, join
 import numpy as np
 import pandas as pd
-import unicodedata
 
 G = '\033[92m'
 RE = '\033[0m'
@@ -44,10 +41,7 @@ class Command(BaseCommand):
         df = df.replace(np.nan, None)
 
         skipped_columns = ['id', 'carousels', 'added', 'should_know_sections']
-        photos_path = expanduser(
-            settings.BASE_DIR / 'lugares_imperdibles'
-        ) + '/'
-
+        photos_path = './lugares_imperdibles/'
         for index, row in df.iterrows():
             row_value_dict = {}
             for model_column in Photo._meta.get_fields():
@@ -55,8 +49,8 @@ class Command(BaseCommand):
                     row_value_dict.update(
                         {f'{model_column.name}': row[model_column.name]}
                     )
-            img_name = unicodedata.normalize('NFC', row_value_dict["image"])
-            with open(join(photos_path, img_name), "rb") as f:
+
+            with open(photos_path + row_value_dict["image"], "rb") as f:
                 row_value_dict["image"] = File(f)
                 photo_instance, _ = Photo.objects.get_or_create(
                     name=row_value_dict['name'],
