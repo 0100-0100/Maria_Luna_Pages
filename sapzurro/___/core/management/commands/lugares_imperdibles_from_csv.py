@@ -5,9 +5,10 @@ from django.conf import settings
 
 from core.models import Photo, Carousel
 
-from os.path import expanduser
+from os.path import expanduser, join
 import numpy as np
 import pandas as pd
+import unicodedata
 
 G = '\033[92m'
 RE = '\033[0m'
@@ -54,8 +55,8 @@ class Command(BaseCommand):
                     row_value_dict.update(
                         {f'{model_column.name}': row[model_column.name]}
                     )
-
-            with open(photos_path + row_value_dict["image"], "rb") as f:
+            img_name = unicodedata.normalize('NFC', row_value_dict["image"])
+            with open(join(photos_path, img_name), "rb") as f:
                 row_value_dict["image"] = File(f)
                 photo_instance, _ = Photo.objects.get_or_create(
                     name=row_value_dict['name'],
