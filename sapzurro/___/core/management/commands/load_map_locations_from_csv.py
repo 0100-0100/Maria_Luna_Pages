@@ -33,12 +33,11 @@ class Command(BaseCommand):
         df = pd.read_csv(kwargs['path'])
         df = df.replace(np.nan, None)
 
+        skipped_columns = ['id', 'icon', 'facebook_link']
         for index, row in df.iterrows():
             row_value_dict = {}
             for model_column in Location._meta.get_fields():
-                if model_column.name == 'icon':
-                    continue
-                if model_column.name != 'id':
+                if model_column.name not in skipped_columns:
                     row_value_dict.update(
                         {f'{model_column.name}': row[model_column.name]}
                     )
