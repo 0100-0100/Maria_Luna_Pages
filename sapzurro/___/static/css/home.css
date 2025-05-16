@@ -22,7 +22,7 @@
 }
 
 #carousel-section {
-  height: 80vh;
+  height: 80svh;
   width: 100vw;
   padding: 0;
   position: relative;
@@ -46,4 +46,11 @@
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
+}
+
+#places-section {
+  height: 100svh;
+  width: 100vw;
+  padding: 0;
+  position: relative;
 }
