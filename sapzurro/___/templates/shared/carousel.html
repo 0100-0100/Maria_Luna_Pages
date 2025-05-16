@@ -1,14 +1,16 @@
-<div class="swiper-container">
+<div class="swiper-container{% if show_description %}-description{% endif %}">
   <div class="swiper-wrapper">
     {% for image in images %}
       <div class="swiper-slide">
         <img
-          class="carousel-image"
+          class="carousel{% if show_description %}-description{% endif %}-image"
           data-src="{{ image.url }}"
-          alt="Image {{ forloop.counter }}">
+          alt="Image {{ forloop.counter }}"
+        >
         {% if show_description %}
-          <div>
-            <h1>{{ forloop.counter }}. {{ image.description }}</h1>
+          <div class="carousel-description">
+            <h2>{{ image.name }}</h2>
+            <p>{{ image.description }}</p>
           </div>
         {% endif %}
       </div>
