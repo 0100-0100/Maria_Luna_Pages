@@ -21,6 +21,10 @@
   color: var(--menu-toggle-background);
 }
 
+html {
+  background-color: var(--menu-toggle-foreground);
+}
+
 body {
   margin: 0;
   background-color: var(--menu-toggle-background);
