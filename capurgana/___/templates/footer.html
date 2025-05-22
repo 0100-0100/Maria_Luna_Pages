@@ -1,0 +1,47 @@
+{% load static %}
+<footer>
+
+  <div class="footer-image-container">
+    <img class="footer-image" alt="Footer Image" src="{% static 'images/footer.webp' %}"/>
+  </div>
+
+  <div class="footer-main-container">
+    <h2>📌 Mapaventura - Mapa Capurganá 2025</h2>
+    {% with SIZE=32 override_color="#00000088" %}
+      {% include 'svg/mapaventura_logo.svg' %}
+    {% endwith %}
+    <h2>📍 Primera edición – Turismo & Conservación</h2>
+  </div>
+
+  <div class="footer-details-container">
+    {% with SIZE=32 background_color='#000' %}
+    <h2>
+      {% include 'svg/mail-icon.svg' %}
+      <a href= "mailto:mapasapzurro@gmail.com" target="_blank">
+        mapasapzurro@gmail.com
+      </a>
+    </h2>
+
+    <h2>
+      {% include 'svg/whatsapp-icon.svg' %}
+      <a href= "tel:+573206865023" target="_blank">
+        +57 320 686 5023
+      </a>
+    </h2>
+
+    <h2>
+      {% include 'svg/instagram-icon.svg' %}
+      <a href="http://www.instagram.com/mapaventura_" target="_blank">
+        @mapadarien
+      </a>
+    </h2>
+
+    <h2>
+      {% include 'svg/location-icon.svg' %}
+      <a href="https://maps.app.goo.gl/QVRgttx3qhy3Wjpq5" target="_blank">
+        Capurganá, Chocó
+      </a>
+    </h2>
+    {% endwith %}
+  </div>
+</footer>

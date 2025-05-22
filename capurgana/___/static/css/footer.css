@@ -1,0 +1,93 @@
+footer {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: var(--menu-toggle-foreground);
+  color: #000;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+
+/* Footer Image Container. _________________________________________________ */
+.footer-image-container {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  z-index: 999;
+}
+
+.footer-image {
+  height: 130px;
+  z-index: 999;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 376px) {
+  .footer-image {
+    height: 87px;
+  }
+}
+
+@media (min-width: 377px) and (max-width: 768px) {
+  .footer-image {
+    height: 80px;
+  }
+}
+
+/* Footer Main Container. __________________________________________________ */
+.footer-main-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .footer-main-container svg {
+    width: 100%;
+  }
+}
+
+/* Footer Details Container. _______________________________________________ */
+.footer-details-container {
+  display: flex;
+  flex-direction: column;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  margin-left: 20px;;
+}
+
+.footer-details-container h2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.footer-details-container a {
+  text-decoration: none;
+  color: #000;
+}
+
+.footer-details-container a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.footer-details-container h2 a:focus::after {
+  outline: 2px solid blue;
+}

@@ -1,0 +1,54 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE-Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="decription" content="Sapzurro interactive map web page, here you will find important and interesting places when visiting Sapzurro.">
+    <meta name="author" content="Diego Lopez">
+    <meta name="copyright" content="Mapaventura">
+
+    {% if DEBUG %}
+      <link rel="icon" type="image/x-icon" href="{% static 'images/mapaventura-favicon-dev.ico' %}">
+    {% else %}
+      <link rel="icon" type="image/x-icon" href="{% static 'images/mapaventura-favicon.ico' %}">
+    {% endif %}
+
+    <title>Mapa Capurganá | {% block title %}{% endblock %}</title>
+    <style>
+    :root {
+      --menu-toggle-foreground: {{ foreground_color }};
+      --menu-toggle-background: {{ background_color }};
+    }
+    </style>
+    <link rel="stylesheet" href="https://use.typekit.net/xlu8vot.css">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}"/>
+
+    {% block styles %}
+    {% endblock %}
+
+  </head>
+
+  <body style="font-family: Thrillers;">
+
+    {% include 'header.html' %}
+
+    <main>
+      <article>
+        {% block content %}
+        {% endblock %}
+      </article>
+    </main>
+
+    {% include 'footer.html' %}
+
+    {% block script %}
+    {% endblock %}
+
+  </body>
+</html>

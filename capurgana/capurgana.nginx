@@ -1,0 +1,26 @@
+server {
+    listen 80;
+    listen [::]:80;
+    name capurgana.co www.capurgana.co
+
+    root /var/www/html;
+
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name _;
+
+    location /static/ {
+        autoindex on;
+	alias /var/www/capurgana/static/;
+    }
+
+    location /media/ {
+        autoindex on;
+        alias /home/ubuntu/Maria_Luna_Pages/capurgana/___/media/;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/tmp/capurgana.sock;
+    }
+}

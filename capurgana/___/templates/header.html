@@ -1,0 +1,22 @@
+{% load static %}
+
+<header>
+  <label>
+    <input type="checkbox"/>
+  </label>
+  <aside>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/map">Explora el Mapa</a>
+      <a href="/lo-que-debes-saber-de-capurgana">Lo que debes saber de Capurganá</a>
+      <a href="/mapaventura">Acerca de Mapaventura</a>
+      <a href="/lugares-imperdibles">Lugares Imperdibles</a>
+    </nav>
+  </aside>
+  <div>
+    <h2>MAPAVENTURA</h2>
+    {% with SIZE=64 %}
+      {% include 'svg/mapaventura_logo.svg' %}
+    {% endwith %}
+  </div>
+</header>

@@ -1,0 +1,131 @@
+#map-background {
+  position: absolute;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.leaflet-container {
+  background: #00000000;
+}
+
+#map {
+  width: 100vw;
+  height: calc(100svh - 50px);
+}
+
+.map-marker-0 {
+  border: solid 5px #02CCB2;
+  border-radius: 32px;
+  background-color: #FFF;
+}
+
+
+/* Marker Pop up information container. ____________________________________ */
+.marker-info-container h2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: #000;
+}
+
+.marker-info-container a {
+  text-decoration: none;
+  color: #000;
+}
+
+.marker-info-container a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.marker-info-container h2 a:focus::after {
+  outline: 2px solid blue;
+}
+
+
+/* Controller inputs and buttons. __________________________________________ */
+.custom-control {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: white;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  border-radius: 4px;
+  z-index: 1000;
+  user-select: none;
+}
+
+
+/* Legend Box. _____________________________________________________________ */
+.legend-box {
+  position: fixed;
+  bottom: 120px;
+  left: 10px;
+  width: calc(100vw - 20px);
+  height: 80vh;
+  background-color: #CFD2B4;
+  color: #000;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px 10px hsl(0deg 0% 0% / 50%);
+  padding: 0 20px 30px 20px;
+  display: none;
+  z-index: 1000;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: opacity 1300ms ease-in-out, transform 1300ms ease-in-out;
+}
+
+.legend-box.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.legend-box h4 {
+  margin: 0 0 5px;
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.legend-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: ;
+  max-height: 66.5%;
+  overflow-y: auto;
+  border-radius: 32px;
+}
+
+.legend-box ul li {
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.legend-box ul li:hover {
+  background-color: #eee;
+}
+
+.legend-box ul li div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}

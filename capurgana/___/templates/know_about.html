@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static core_templatetags %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/know_about.css' %}">
+{% endblock %}
+
+{% block title %}Lo Que Debes Saber de Capurganá{% endblock %}
+
+{% block content %}
+  <section class="page-heading">
+    <h1>Lo que debes saber de Sapzurro</h1>
+    <h2>(Guia Basica)</h2>
+  </section>
+
+  {% get_know_about_sections %}
+
+{% endblock %}
+
+{% block script %}
+  <script>
+  document.querySelectorAll('.navigation-button').forEach((e) => {
+    e.addEventListener("click", (e) => {
+      const top = document
+        .getElementById(e.target.dataset.sectionId)
+        .getBoundingClientRect().top + window.scrollY - 60;
+      window.scrollTo({top, behavior: "smooth"});
+    });
+  });
+  </script>
+{% endblock %}
