@@ -1,6 +1,6 @@
 [Unit]
 Description=Gunicorn Instance running the Capurgana page Django project
-After=network.target                         c
+After=network.target
 
 [Service]
 User=ubuntu
