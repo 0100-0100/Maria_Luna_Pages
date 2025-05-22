@@ -1,13 +1,12 @@
 server {
     listen 80;
     listen [::]:80;
-    name capurgana.co www.capurgana.co
 
     root /var/www/html;
 
     index index.html index.htm index.nginx-debian.html;
 
-    server_name _;
+    server_name capurgana.co www.capurgana.co;
 
     location /static/ {
         autoindex on;
