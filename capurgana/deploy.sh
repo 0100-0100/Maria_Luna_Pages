@@ -20,7 +20,7 @@ git pull origin main & 2>&1
 wait_with_message $! "Pulling from main"
 
 source .venv/bin/activate
-cd sapzurro/___/
+cd capurgana/___/
 
 python3 manage.py collectstatic --noinput & 2>&1
 wait_with_message $! "Collecting Static"
@@ -35,7 +35,7 @@ source ~/.bashrc
 python3 manage.py check --deploy & 2>&1
 wait_with_message $! "Running 'python3 manage.py check --deploy'"
 
-sudo service sapzurro restart & 2>&1
+sudo service capurgana restart & 2>&1
 wait_with_message $! "Restarting sapzurro service"
 
 echo "----------------------------------------"
