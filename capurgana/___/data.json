@@ -1,0 +1,86 @@
+[
+{
+  "model": "core.shouldknowsection",
+  "pk": 1,
+  "fields": {
+    "name": "🌱 CUIDADO AMBIENTAL",
+    "title": "🌱 CUIDADO AMBIENTAL – TU IMPACTO IMPORTA",
+    "text_content": "Sapzurro y Capurganá son destinos paradisíacos con ecosistemas frágiles que necesitan protección. A diferencia de otros lugares turísticos, aquí no hay un sistema de recolección ni tratamiento de basuras eficiente, lo que significa que la basura suele quemarse o terminar en el mar.\r\n\r\n📌 Llévate tu basura: No hay dónde procesarla. Los corregimientos del municipio de Acandí no cuentan con relleno sanitario, así que lo que traes contigo, llévalo de regreso. \r\n\r\n📌 Minimiza el plástico: Usa botellas reutilizables y evita los desechables.\r\n\r\n 📌 Respeta la fauna y flora: No te lleves conchas, corales o plantas. Cada elemento de la naturaleza cumple una función vital. \r\n\r\n📌 Participa en la solución: Cada visitante tiene el poder de aportar. Deja el menor impacto posible y contribuye económicamente con Darién Verde Azul, una organización creada para implementar una estrategia de tratamiento de plásticos en la región. Puedes aportar a la solución a largo plazo uniéndote a esta iniciativa.\r\n\r\n🔗 Haz clic aquí para conocer más sobre Darién Verde Azul y su estrategia ambiental.\r\nBotón: [Vaki Darién Verde Azul]",
+    "button_text": "Vaki Darién Verde Azul",
+    "button_link": "https://vaki.co/es/vaki/darien-verdeazul1?utm_source=copy&utm_medium=vaki-page&utm_campaign=v4",
+    "image": null,
+    "illustration": null,
+    "added": "2025-06-09"
+  }
+},
+{
+  "model": "core.shouldknowsection",
+  "pk": 2,
+  "fields": {
+    "name": "🏡 CULTURA LOCAL",
+    "title": "🏡 CULTURA LOCAL",
+    "text_content": "La región tiene una comunidad diversa con raíces afrodescendientes e indígenas. Respetar sus costumbres y forma de vida es clave para un turismo armónico.\r\n\r\n📌 Saluda y conversa: La gente es amable, y una sonrisa siempre es bienvenida.\r\n\r\n 📌 Respeta el ritmo local: Aquí el tiempo fluye diferente. No todo es inmediato, y eso hace parte de la experiencia.\r\n 📌 Consume local: Apoya a los pequeños negocios, compra artesanías y elige productos de la región. \r\n\r\n📌Las  fiestas de la Cigua, En octubre se celebra un evento importante a nivel local con música vallenata, champeta, dembow y soka. Los picós forman parte de la cultura local, por lo que es común encontrar música a alto volumen en ciertos sectores.",
+    "button_text": "/",
+    "button_link": "/",
+    "image": null,
+    "illustration": null,
+    "added": "2025-06-09"
+  }
+},
+{
+  "model": "core.shouldknowsection",
+  "pk": 3,
+  "fields": {
+    "name": "⚡ SERVICIOS BÁSICOS",
+    "title": "⚡ SERVICIOS BÁSICOS – LO QUE NECESITAS SABER",
+    "text_content": "Sapzurro y Capurganá son lugares alejados con infraestructura limitada en cuanto a servicios básicos. Para que tu visita sea más cómoda, ten en cuenta:\r\n\r\n📌 No hay cajeros automáticos: Trae suficiente efectivo. Capurganá cuenta con corresponsalías bancarias, pero no operan los domingos. \r\n\r\n📌 Electricidad intermitente: Hay cortes ocasionales de luz. Consulta con tu anfitrión sobre la situación actual.\r\n\r\n 📌 Agua potable limitada: Usa el agua con conciencia y adquiere agua embotellada. \r\n\r\n📌 Señal de celular: Funciona con las redes de Claro, Movistar y Tigo.",
+    "button_text": ".",
+    "button_link": ".",
+    "image": null,
+    "illustration": null,
+    "added": "2025-06-09"
+  }
+},
+{
+  "model": "core.shouldknowsection",
+  "pk": 4,
+  "fields": {
+    "name": "🐒 FAUNA Y FLORA",
+    "title": "🐒 FAUNA Y FLORA – UN TESORO NATURAL",
+    "text_content": "Galeria Imagenes Relacionadas a la Fauna y flora representeativa. \r\n\r\nEl Darién Chocoano alberga especies únicas. Respetalas y ayúdanos a conservarlas. \r\n📌 Fauna y Flora Representativa de Sapzurro y Capurganá>\r\nEl Darién chocoano es una de las regiones más biodiversas de Colombia. Su ecosistema abarca bosques húmedos tropicales, manglares y arrecifes coralinos, lo que permite una gran variedad de flora y fauna terrestre y acuática. \r\n\r\nFlora Representativa Bosques húmedos tropicales: Predominan árboles como el ceiba (Ceiba pentandra), el cativo (Prioria copaifera) y el guayacán (Tabebuia chrysantha). Manglares: Se encuentran especies como el mangle rojo (Rhizophora mangle) y el mangle negro (Avicennia germinans), vitales para la protección costera. Plantas ornamentales y frutales: El coco (Cocos nucifera), el árbol del pan (Artocarpus altilis) y el mango (Mangifera indica) son comunes en la zona. \r\n📌Fauna Representativa Mamíferos terrestres: El mono aullador (Alouatta palliata), el oso perezoso (Bradypus variegatus) y el tigrillo (Leopardus tigrinus) habitan en los bosques cercanos. Aves: Se pueden ver el tucán pico arcoíris (Ramphastos sulfuratus), el colibrí esmeralda (Chlorostilbon melanorhynchus) y varias especies de loros Y el Tucàn Aracari (Pteroglossus aracari) \r\n\r\n📌Reptiles y anfibios: El caimán aguja (Crocodylus acutus) en zonas de manglar y la rana dorada (Phyllobates terribilis) en los bosques húmedos. \r\n\r\n📌Especies Acuáticas y Arrecifes Coralinos: \r\nLos arrecifes coralinos en Sapzurro y Capurganá forman parte del Caribe colombiano, pero están amenazados por el cambio climático, la contaminación y la pesca descontrolada. \r\n📌Corales en peligro de desaparición \r\n1. Coral cuerno de alce (Acropora palmata) – Ha disminuido drásticamente por el blanqueamiento y enfermedades. 2. Coral cuerno de ciervo (Acropora cervicornis) – Antes abundante, ahora en peligro crítico por la acidificación del océano. 3. Coral cerebro (Diploria labyrinthiformis) – Afectado por el síndrome blanco y la sedimentación. 4. Coral de fuego (Millepora complanata) – Su reducción se debe a la contaminación y el estrés térmico.\r\n\r\n📌 Peces más comunes en la zona \r\n1. Pez loro (Scarus guacamaia) – Es crucial para la salud de los arrecifes porque ayuda a mantener el equilibrio del ecosistema coralino. \r\n2. Pez ángel reina (Holacanthus ciliaris) – De colores brillantes y común en arrecifes y manglares. \r\n3. Pez cirujano azul (Acanthurus coeruleus) – Se alimenta de algas y ayuda a mantener la salud del coral.\r\n 4. Mero (Epinephelus itajara) – Importante para la pesca, aunque en algunas áreas su población está disminuyendo.\r\n 5. Pez león (Pterois volitans) – Es una especie invasora que amenaza a los peces nativos y al equilibrio ecológico. Estos ecosistemas son fundamentales para la biodiversidad y el turismo ecológico de la región. Su conservación es clave para evitar la pérdida de especies y mantener el equilibrio ambiental en Sapzurro y Capurganá.\r\n\r\n 📌 No alimentes a los animales: Su dieta natural es esencial para su supervivencia.\r\n 📌 Avistamiento responsable: Observa, pero sin alterar su hábitat. Usa binoculares y respeta la distancia y el silencio \r\n📌Estamos en proceso de declaratoria de ampliaciòn de santuario de Fauna desde Acandì hasta Cabo Tiburòn (80.000 hectareas)",
+    "button_text": ".",
+    "button_link": "#",
+    "image": null,
+    "illustration": null,
+    "added": "2025-06-09"
+  }
+},
+{
+  "model": "core.shouldknowsection",
+  "pk": 5,
+  "fields": {
+    "name": "🚢 MEDIOS DE TRANSPORTE Y ACCESOS",
+    "title": "🚢 MEDIOS DE TRANSPORTE Y ACCESOS",
+    "text_content": "📌 Estas son las terminales de transporte marítimo a las que puedes llegar por tierra:\r\n\r\nTenemos dos terminales marítimas principales.\r\n\r\nDesde Turbo, encontrarás una terminal con sala de espera, parqueaderos, área de comida y zona de embarque.\r\n\r\nLa ruta marítima desde este punto bordea toda la costa del Urabá y el Darién Chocoano.\r\n\r\nLas dos terminales de Necoclí cuentan con zona de espera y embarque, y la ruta atraviesa los extremos norte del Golfo de Urabá.\r\n\r\nTanto desde Turbo como desde Necoclí, se puede tomar transporte marítimo hacia los corregimientos dentro del golfo.\r\n\r\n📌 Desde Medellín o Bogotá: Puedes tomar un vuelo a Acandí o a Capurganá y, desde allí, moverte en lancha por la zona.\r\n\r\n📌 Entre Sapzurro y Capurganá: Puedes viajar en lancha (10 minutos) o caminar el sendero ecológico (1 hora, con una vista espectacular).\r\nTambién está el sendero hacia La Miel, Panamá, desde Sapzurro, el cual solo toma unos 20 minutos.\r\n\r\n📌 Todo el transporte en la zona se realiza por vía marítima, excepto en algunos senderos.",
+    "button_text": ".",
+    "button_link": ".",
+    "image": null,
+    "illustration": null,
+    "added": "2025-06-09"
+  }
+},
+{
+  "model": "core.shouldknowsection",
+  "pk": 6,
+  "fields": {
+    "name": "🍽️ COMIDA LOCAL",
+    "title": "🍽️ COMIDA LOCAL – SABORES DEL CARIBE CHOCOANO",
+    "text_content": "📌 Pescado fresco: Pargo rojo, róbalo, corvina, cojinúa, atún.\r\n📌 Cocina afro e indígena: Platos con coco, plátano y mariscos.\r\n📌 Frutas tropicales: Borojo, mango, aguacates.",
+    "button_text": "/",
+    "button_link": "#",
+    "image": null,
+    "illustration": null,
+    "added": "2025-06-09"
+  }
+}
+]
