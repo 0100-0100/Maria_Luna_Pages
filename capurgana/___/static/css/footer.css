@@ -8,8 +8,8 @@ footer {
   justify-content: center;
   align-items: center;
   z-index: 999;
+  padding: 20px 0;
 }
-
 
 /* Footer Image Container. _________________________________________________ */
 .footer-image-container {
@@ -47,11 +47,31 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  text-align: center;
+}
+
+.footer-main-container h2 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-wide);
+  color: #000;
+  margin: 0.5rem 0;
 }
 
 @media (max-width: 768px) {
+  .footer-main-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-main-container h2 {
+    font-size: var(--font-size-base);
+  }
+
   .footer-main-container svg {
     width: 100%;
+    max-width: 200px;
   }
 }
 
@@ -62,7 +82,8 @@ footer {
   padding-right: 20px;
   padding-bottom: 20px;
   padding-top: 20px;
-  margin-left: 20px;;
+  margin-left: 20px;
+  gap: 8px;
 }
 
 .footer-details-container h2 {
@@ -71,11 +92,31 @@ footer {
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-wide);
+  color: #000;
+  margin: 0;
+  transition: all 0.2s ease;
+}
+
+.footer-details-container h2:hover {
+  color: #333;
+  transform: translateX(2px);
 }
 
 .footer-details-container a {
   text-decoration: none;
   color: #000;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  transition: color 0.2s ease;
+}
+
+.footer-details-container a:hover {
+  color: #333;
 }
 
 .footer-details-container a::after {
@@ -90,4 +131,27 @@ footer {
 
 .footer-details-container h2 a:focus::after {
   outline: 2px solid blue;
+  border-radius: 4px;
+}
+
+/* Responsive footer details */
+@media (max-width: 768px) {
+  .footer-details-container {
+    padding: 15px;
+    margin-left: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-details-container h2 {
+    font-size: var(--font-size-sm);
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-details-container h2 {
+    font-size: var(--font-size-xs);
+    gap: 8px;
+  }
 }
