@@ -88,11 +88,14 @@
 }
 
 .section-type-1 p {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-2xl);
   line-height: var(--line-height-relaxed);
   letter-spacing: var(--letter-spacing-wide);
   margin-bottom: 1.5rem;
-  max-width: 65ch;
+  max-width: 80ch;
+  min-width: 80ch;
+  text-align: left;
+  color: #1C1C1C;
 }
 
 .navigation {
@@ -171,6 +174,11 @@
     font-size: var(--font-size-xs);
     height: 40px;
     min-width: auto;
+  }
+
+  .section-type-1 p {
+    max-width: 50ch;
+    min-width: 50ch;
   }
 
   .section-type-1 h1 {
