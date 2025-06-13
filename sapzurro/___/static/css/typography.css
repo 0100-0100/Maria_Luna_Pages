@@ -1,19 +1,19 @@
-/* Typography System for Sapzurro Project */
+/* Typography System for Sapzurro Project - CORRECTED */
 /* File: static/css/typography.css */
 
 /* Typography Variables */
 :root {
-  /* Font Scale */
-  --font-size-xs: 0.875rem;
-  --font-size-sm: 1rem;
-  --font-size-base: 1.125rem;
-  --font-size-lg: 1.25rem;
-  --font-size-xl: 1.5rem;
-  --font-size-2xl: 1.75rem;
-  --font-size-3xl: 2.125rem;
-  --font-size-4xl: 2.5rem;
-  --font-size-5xl: 3.25rem;
-  --font-size-6xl: 4rem;
+  /* Font Scale - Increased significantly for better readability */
+  --font-size-xs: 1rem;       /* 16px - was 12px */
+  --font-size-sm: 1.125rem;   /* 18px - was 14px */
+  --font-size-base: 1.25rem;  /* 20px - was 16px */
+  --font-size-lg: 1.5rem;     /* 24px - was 18px */
+  --font-size-xl: 1.75rem;    /* 28px - was 20px */
+  --font-size-2xl: 2rem;      /* 32px - was 24px */
+  --font-size-3xl: 2.5rem;    /* 40px - was 30px */
+  --font-size-4xl: 3rem;      /* 48px - was 36px */
+  --font-size-5xl: 3.75rem;   /* 60px - was 48px */
+  --font-size-6xl: 4.5rem;    /* 72px - was 60px */
 
   /* Line Heights */
   --line-height-tight: 1.1;
@@ -21,13 +21,13 @@
   --line-height-relaxed: 1.6;
   --line-height-loose: 1.8;
 
-  /* Letter Spacing */
+  /* Letter Spacing - Helps with Thrillers font readability */
   --letter-spacing-tight: -0.025em;
   --letter-spacing-normal: 0;
   --letter-spacing-wide: 0.025em;
   --letter-spacing-wider: 0.05em;
 
-  /* Font Weights */
+  /* Font Weights - Adjust these based on what Thrillers font supports */
   --font-weight-light: 300;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
@@ -96,9 +96,9 @@ h6 {
   text-transform: uppercase;
 }
 
-/* Paragraph and Text */
+/* Paragraph and Text - FIXED: More reasonable default size */
 p {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-base); /* Changed from 2xl to base for better default */
   line-height: var(--line-height-relaxed);
   margin-bottom: 1rem;
   letter-spacing: var(--letter-spacing-wide);
@@ -157,13 +157,14 @@ nav a {
 /* Responsive Typography */
 @media (max-width: 768px) {
   :root {
-    --font-size-4xl: 2.25rem;
-    --font-size-3xl: 1.875rem;
-    --font-size-2xl: 1.5rem;
+    --font-size-base: 1.125rem;  /* 18px on mobile */
+    --font-size-4xl: 2.25rem;    /* 36px - h1 on mobile */
+    --font-size-3xl: 1.875rem;   /* 30px - h2 on mobile */
+    --font-size-2xl: 1.625rem;   /* 26px - h3 on mobile */
   }
 
   body {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-base);
   }
 
   nav a {
@@ -173,8 +174,9 @@ nav a {
 
 @media (max-width: 480px) {
   :root {
-    --font-size-4xl: 2rem;
-    --font-size-3xl: 1.75rem;
+    --font-size-base: 1rem;      /* 16px on small mobile */
+    --font-size-4xl: 2rem;       /* 32px on very small screens */
+    --font-size-3xl: 1.75rem;    /* 28px */
   }
 
   nav a {
@@ -182,12 +184,17 @@ nav a {
   }
 }
 
-/* Large screens */
+/* Large screens - Significantly increased for desktop */
 @media (min-width: 1200px) {
   :root {
-    --font-size-4xl: 2.75rem;
-    --font-size-5xl: 3.5rem;
-    --font-size-6xl: 4.25rem;
+    --font-size-base: 1.375rem;  /* 22px for body text on desktop */
+    --font-size-lg: 1.625rem;    /* 26px */
+    --font-size-xl: 1.875rem;    /* 30px */
+    --font-size-2xl: 2.25rem;    /* 36px */
+    --font-size-3xl: 2.75rem;    /* 44px */
+    --font-size-4xl: 3.25rem;    /* 52px for main headings */
+    --font-size-5xl: 4rem;       /* 64px */
+    --font-size-6xl: 5rem;       /* 80px */
   }
 }
 
