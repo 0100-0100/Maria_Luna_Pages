@@ -105,9 +105,9 @@ section:not(:last-child) {
 button:not(.swiper-button-next):not(.swiper-button-prev):not(.swiper-pagination-bullet) {
   background-color: var(--menu-toggle-foreground);
   color: var(--menu-toggle-background);
-  height: 60px;
-  min-width: 300px;
-  border-radius: 10px;
+  height: 70px; /* Increased height for larger text */
+  min-width: 350px; /* Increased width */
+  border-radius: 12px; /* Slightly larger radius */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -119,22 +119,25 @@ button:not(.swiper-button-next):not(.swiper-button-prev):not(.swiper-pagination-
   transition: var(--transition-normal);
   border: none;
   cursor: pointer;
-  padding: 0 var(--spacing-md);
-  box-shadow: var(--shadow-sm);
+  padding: 0 var(--spacing-lg); /* Increased padding */
+  box-shadow: var(--shadow-md);
+  text-decoration: none; /* Important for <a> tags */
+  text-align: center;
 }
 
 .main-button:hover,
 .button:hover,
 button:hover:not(.swiper-button-next):not(.swiper-button-prev):not(.swiper-pagination-bullet) {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
+  text-decoration: none; /* Ensure no underline on hover */
 }
 
 .main-button:active,
 .button:active,
 button:active:not(.swiper-button-next):not(.swiper-button-prev):not(.swiper-pagination-bullet) {
   transform: translateY(0);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
 }
 
 .main-button:focus,
@@ -142,6 +145,40 @@ button:active:not(.swiper-button-next):not(.swiper-button-prev):not(.swiper-pagi
 button:focus:not(.swiper-button-next):not(.swiper-button-prev):not(.swiper-pagination-bullet) {
   outline: 2px solid var(--menu-toggle-background);
   outline-offset: 2px;
+  text-decoration: none;
+}
+
+/* Responsive button adjustments */
+@media (max-width: 768px) {
+  .main-button,
+  .button {
+    width: 320px; /* Increased for larger text */
+    min-width: 320px;
+    height: 65px; /* Increased height */
+    font-size: var(--font-size-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .main-button,
+  .button {
+    width: 280px; /* Increased for larger text */
+    min-width: 280px;
+    height: 60px; /* Increased height */
+    font-size: var(--font-size-sm);
+    padding: 0 var(--spacing-md);
+  }
+}
+
+/* Large screens - ensure buttons scale with larger text */
+@media (min-width: 1200px) {
+  .main-button,
+  .button {
+    height: 75px; /* Even taller for desktop */
+    min-width: 380px; /* Wider for desktop */
+    font-size: var(--font-size-xl); /* Larger font on desktop */
+    padding: 0 var(--spacing-xl);
+  }
 }
 
 /* Image optimization */
@@ -177,14 +214,6 @@ img[loading="lazy"].loaded {
 @media (max-width: 480px) {
   section {
     padding: var(--spacing-sm) calc(var(--spacing-sm) * 0.75);
-  }
-
-  .main-button,
-  .button {
-    width: 250px;
-    min-width: 250px;
-    height: 50px;
-    font-size: var(--font-size-sm);
   }
 }
 
