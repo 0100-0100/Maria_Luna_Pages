@@ -1,0 +1,216 @@
+/* Typography System for Sapzurro Project - CORRECTED */
+/* File: static/css/typography.css */
+
+/* Typography Variables */
+:root {
+  /* Font Scale - Increased significantly for better readability */
+  --font-size-xs: 1rem;       /* 16px - was 12px */
+  --font-size-sm: 1.125rem;   /* 18px - was 14px */
+  --font-size-base: 1.25rem;  /* 20px - was 16px */
+  --font-size-lg: 1.5rem;     /* 24px - was 18px */
+  --font-size-xl: 1.75rem;    /* 28px - was 20px */
+  --font-size-2xl: 2rem;      /* 32px - was 24px */
+  --font-size-3xl: 2.5rem;    /* 40px - was 30px */
+  --font-size-4xl: 3rem;      /* 48px - was 36px */
+  --font-size-5xl: 3.75rem;   /* 60px - was 48px */
+  --font-size-6xl: 4.5rem;    /* 72px - was 60px */
+
+  /* Line Heights */
+  --line-height-tight: 1.1;
+  --line-height-normal: 1.4;
+  --line-height-relaxed: 1.6;
+  --line-height-loose: 1.8;
+
+  /* Letter Spacing - Helps with Thrillers font readability */
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+
+  /* Font Weights - Adjust these based on what Thrillers font supports */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+}
+
+/* Base Typography */
+body {
+  font-family: 'Thrillers', sans-serif;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+  font-weight: var(--font-weight-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings Hierarchy */
+h1 {
+  font-size: var(--font-size-4xl);
+  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-normal);
+  margin-bottom: 0.875rem;
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+  line-height: var(--line-height-normal);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-normal);
+  margin-bottom: 0.75rem;
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-normal);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  margin-bottom: 0.625rem;
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-normal);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  margin-bottom: 0.5rem;
+}
+
+h6 {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wider);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+/* Paragraph and Text - FIXED: More reasonable default size */
+p {
+  font-size: var(--font-size-base); /* Changed from 2xl to base for better default */
+  line-height: var(--line-height-relaxed);
+  margin-bottom: 1rem;
+  letter-spacing: var(--letter-spacing-wide);
+  color: #1C1C1C;
+}
+
+/* Large text for important content */
+.text-lead {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  font-weight: var(--font-weight-normal);
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* Small text */
+.text-small {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* Extra small text */
+.text-xs {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-wider);
+}
+
+/* Links */
+a {
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: var(--letter-spacing-wide);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* Buttons */
+button, .button, .main-button {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wider);
+  text-transform: uppercase;
+}
+
+/* Navigation specific */
+nav a {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-normal);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  :root {
+    --font-size-base: 1.125rem;  /* 18px on mobile */
+    --font-size-4xl: 2.25rem;    /* 36px - h1 on mobile */
+    --font-size-3xl: 1.875rem;   /* 30px - h2 on mobile */
+    --font-size-2xl: 1.625rem;   /* 26px - h3 on mobile */
+  }
+
+  body {
+    font-size: var(--font-size-base);
+  }
+
+  nav a {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-base: 1rem;      /* 16px on small mobile */
+    --font-size-4xl: 2rem;       /* 32px on very small screens */
+    --font-size-3xl: 1.75rem;    /* 28px */
+  }
+
+  nav a {
+    font-size: var(--font-size-xl);
+  }
+}
+
+/* Large screens - Significantly increased for desktop */
+@media (min-width: 1200px) {
+  :root {
+    --font-size-base: 1.375rem;  /* 22px for body text on desktop */
+    --font-size-lg: 1.625rem;    /* 26px */
+    --font-size-xl: 1.875rem;    /* 30px */
+    --font-size-2xl: 2.25rem;    /* 36px */
+    --font-size-3xl: 2.75rem;    /* 44px */
+    --font-size-4xl: 3.25rem;    /* 52px for main headings */
+    --font-size-5xl: 4rem;       /* 64px */
+    --font-size-6xl: 5rem;       /* 80px */
+  }
+}
+
+/* Utility Classes */
+.font-light { font-weight: var(--font-weight-light); }
+.font-normal { font-weight: var(--font-weight-normal); }
+.font-medium { font-weight: var(--font-weight-medium); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold { font-weight: var(--font-weight-bold); }
+
+.tracking-tight { letter-spacing: var(--letter-spacing-tight); }
+.tracking-normal { letter-spacing: var(--letter-spacing-normal); }
+.tracking-wide { letter-spacing: var(--letter-spacing-wide); }
+.tracking-wider { letter-spacing: var(--letter-spacing-wider); }
+
+.leading-tight { line-height: var(--line-height-tight); }
+.leading-normal { line-height: var(--line-height-normal); }
+.leading-relaxed { line-height: var(--line-height-relaxed); }
+.leading-loose { line-height: var(--line-height-loose); }
