@@ -17,9 +17,11 @@
       <img class="section-type-1-img" alt="Image" src="{{ section.image.image.url }}"/>
     {% endif %}
 
-    {% if section.text_content %}
-      <p style="color: #1C4036;">{{ section.text_content }}</p>
-    {% endif %}
+      {% if section.text_content %}
+        <div class="section-text-content">
+          {{ section.text_content|linebreaks }}
+        </div>
+      {% endif %}
 
     {% if section.illustration %}
       <img alt="Illustration" src="{{ section.illustration.image.url }}"/>
