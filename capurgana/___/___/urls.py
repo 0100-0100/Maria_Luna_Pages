@@ -28,7 +28,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', view_home),
     path('map', view_map),
-    path('lo-que-debes-saber-de-sapzurro', view_about_sapzurro),
+    path('lo-que-debes-saber-de-capurgana', view_about_sapzurro),
     path('mapaventura', view_mapaventura),
     path('lugares-imperdibles', view_about_us),
     # API Map endpoints.
