@@ -21,7 +21,7 @@
 }
 
 [id$="section"] h3 {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xl); /* Reduced from 2xl to xl for better balance */
   line-height: var(--line-height-relaxed);
   font-weight: var(--font-weight-normal);
   letter-spacing: var(--letter-spacing-wide);
@@ -32,7 +32,7 @@
 }
 
 [id$="section"] h4 {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-lg); /* Increased from base to lg */
   line-height: var(--line-height-normal);
   font-weight: var(--font-weight-medium);
   letter-spacing: var(--letter-spacing-wide);
@@ -40,7 +40,7 @@
 }
 
 [id$="section"] p {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-lg); /* Reduced from 2xl to lg for better readability */
   line-height: var(--line-height-relaxed);
   font-weight: var(--font-weight-normal);
   letter-spacing: var(--letter-spacing-wide);
@@ -68,7 +68,7 @@
 }
 
 #map-section h2 {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-3xl);
   line-height: var(--line-height-normal);
   text-align: center;
   margin-bottom: 1.5rem;
@@ -142,6 +142,12 @@
   justify-content: center;
 }
 
+/* Button spacing in sections */
+[id$="section"] .main-button {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   [id$="section"] {
@@ -158,8 +164,12 @@
   }
 
   [id$="section"] h3 {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-lg); /* Adjusted for mobile */
     max-width: none;
+  }
+
+  [id$="section"] p {
+    font-size: var(--font-size-base); /* Smaller on mobile */
   }
 
   .map-image {
@@ -171,5 +181,24 @@
   #map-section h1 {
     font-size: var(--font-size-3xl);
     padding: 0 10px;
+  }
+
+  [id$="section"] h3 {
+    font-size: var(--font-size-base);
+  }
+
+  [id$="section"] p {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Large screens - optimize for desktop */
+@media (min-width: 1200px) {
+  [id$="section"] h3 {
+    font-size: var(--font-size-2xl); /* Larger on desktop */
+  }
+
+  [id$="section"] p {
+    font-size: var(--font-size-xl); /* Larger on desktop */
   }
 }
