@@ -50,7 +50,7 @@
 }
 
 .carousel-description h2 {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-normal);
@@ -60,7 +60,7 @@
 }
 
 .carousel-description p {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-normal);
   line-height: var(--line-height-relaxed);
   letter-spacing: var(--letter-spacing-wide);
