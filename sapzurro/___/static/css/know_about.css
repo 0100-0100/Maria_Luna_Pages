@@ -88,7 +88,7 @@
 }
 
 .section-type-1 p {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-xl);
   line-height: var(--line-height-relaxed);
   letter-spacing: var(--letter-spacing-wide);
   margin-bottom: 1.5rem;
