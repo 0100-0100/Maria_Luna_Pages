@@ -18,7 +18,9 @@
     {% endif %}
 
     {% if section.text_content %}
-      <p style="color: #1C4036;">{{ section.text_content }}</p>
+      <div class="section-text-content">
+        {{ section.text_content|linebreaks }}
+      </div>
     {% endif %}
 
     {% if section.illustration %}
