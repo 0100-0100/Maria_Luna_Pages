@@ -39,35 +39,18 @@
   margin-bottom: 1.5rem;
 }
 
-[id$="section"] a {
-  background-color: var(--menu-toggle-foreground);
-  color: var(--menu-toggle-background);
-  height: 60px;
-  width: 300px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: var(--letter-spacing-wider);
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-}
-
-[id$="section"] a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
 [id$="section"] p {
   font-size: var(--font-size-base);
-  line-height: var(--line-height-normal);
-  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-relaxed);
+  font-weight: var(--font-weight-normal);
   letter-spacing: var(--letter-spacing-wide);
   margin-bottom: 1.5rem;
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* Carousel section */
 #carousel-section {
   height: 80svh;
   width: 100vw;
@@ -75,7 +58,7 @@
   position: relative;
 }
 
-/* Map section ----------------------------------------------------------- */
+/* Map section specific styles */
 #map-section h1 {
   font-size: var(--font-size-5xl);
   text-shadow: 3px 3px rgba(97, 161, 250, 0.3);
@@ -114,14 +97,15 @@
   max-width: 75vw;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-normal);
 }
 
 .map-image:hover {
   transform: scale(1.02);
 }
 
+/* Places section */
 #places-section {
   height: 100svh;
   width: 100vw;
@@ -136,6 +120,7 @@
   margin-top: 2rem;
 }
 
+/* Environment section */
 #environment-section h2 {
   font-size: var(--font-size-4xl);
   text-align: center;
@@ -157,6 +142,7 @@
   justify-content: center;
 }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
   [id$="section"] {
     padding-left: 15px;
@@ -176,23 +162,12 @@
     max-width: none;
   }
 
-  [id$="section"] a {
-    width: 280px;
-    font-size: var(--font-size-base);
-  }
-
   .map-image {
     max-width: 90vw;
   }
 }
 
 @media (max-width: 480px) {
-  [id$="section"] a {
-    width: 250px;
-    height: 50px;
-    font-size: var(--font-size-sm);
-  }
-
   #map-section h1 {
     font-size: var(--font-size-3xl);
     padding: 0 10px;
