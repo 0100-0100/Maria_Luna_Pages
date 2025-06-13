@@ -60,8 +60,12 @@ class ShouldKnowSection(models.Model):
     name = models.CharField(max_length=255)
     title = models.CharField(max_length=255)
     text_content = models.TextField(null=True, default=None)
-    button_text = models.CharField(max_length=255, null=True, default=None)
-    button_link = models.CharField(max_length=500, null=True, default="#")
+    button_text = models.CharField(
+        max_length=255, null=True, default=None, blank=True
+    )
+    button_link = models.CharField(
+        max_length=500, null=True, default=None, blank=True
+    )
     image = models.ForeignKey(
         Photo, on_delete=models.SET_NULL, null=True, blank=True,
         related_name='should_know_sections'
