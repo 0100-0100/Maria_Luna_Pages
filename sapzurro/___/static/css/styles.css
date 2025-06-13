@@ -1,5 +1,5 @@
 :root {
-  --red: #EA455D
+  --red: #EA455D;
 }
 
 *, *::after, *::before {
@@ -29,10 +29,14 @@ body {
   margin: 0;
   background-color: var(--menu-toggle-background);
   color: var(--menu-toggle-foreground);
+  /* Typography settings moved to typography.css */
 }
 
 a {
   text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  transition: all 0.2s ease;
 }
 
 article {
@@ -49,6 +53,7 @@ section {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding: 2rem 1rem;
 }
 
 .main-button {
@@ -60,5 +65,37 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wider);
+  line-height: var(--line-height-normal);
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.main-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.main-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive button */
+@media (max-width: 768px) {
+  .main-button {
+    width: 280px;
+    font-size: var(--font-size-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .main-button {
+    width: 250px;
+    height: 50px;
+    font-size: var(--font-size-sm);
+  }
 }

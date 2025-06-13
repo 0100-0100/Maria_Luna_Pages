@@ -128,12 +128,17 @@ header aside nav a {
   color: var(--menu-toggle-foreground);
   background-color: #00000000;
   text-decoration: none;
-  font-size: 45px;
-  transition: background-color var(--nav-animation-timing);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  line-height: var(--line-height-normal);
+  transition: all var(--nav-animation-timing);
 }
 
 header aside nav a:hover {
   background-color: #1C1C1C50;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wider);
 }
 
 header aside nav a:nth-child(1):hover {
@@ -148,6 +153,19 @@ header aside nav a:nth-child(3):hover {
 header aside nav a:nth-child(4):hover {
 }
 
+/* Responsive navigation text */
+@media (max-width: 768px) {
+  header aside nav a {
+    font-size: var(--font-size-xl);
+    padding-left: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  header aside nav a {
+    font-size: var(--font-size-lg);
+  }
+}
 
 /* Header Logo and text Styles
 ============================================================================= */
@@ -164,6 +182,24 @@ header div {
 
 header div h2 {
   margin-right: var(--nav-border);
-  line-height: var(--nav-border);
+  line-height: var(--line-height-tight);
   user-select: none;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-wider);
+  text-transform: uppercase;
+}
+
+/* Responsive header logo */
+@media (max-width: 768px) {
+  header div h2 {
+    font-size: var(--font-size-base);
+  }
+}
+
+@media (max-width: 480px) {
+  header div h2 {
+    font-size: var(--font-size-sm);
+    letter-spacing: var(--letter-spacing-wide);
+  }
 }
