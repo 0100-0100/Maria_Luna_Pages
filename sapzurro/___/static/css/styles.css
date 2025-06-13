@@ -153,7 +153,6 @@ img {
 
 /* Loading states */
 img[loading="lazy"] {
-  opacity: 0;
   transition: opacity var(--transition-normal);
 }
 
