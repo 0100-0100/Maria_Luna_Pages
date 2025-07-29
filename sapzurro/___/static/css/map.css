@@ -52,6 +52,7 @@
   border: solid var(--menu-toggle-foreground) 15px;
   display: flex;
   flex-wrap: wrap;
+  overflow-y: auto;
 }
 
 .map-popup-container-content-top-left {
@@ -229,7 +230,6 @@ div[class^="map-popup-container-content"] {
   max-height: 66.5%;
   padding: 0;
   margin: 0;
-  overflow-y: auto;
   border-radius: 32px;
 }
 
