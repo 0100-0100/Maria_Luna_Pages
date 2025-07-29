@@ -9,7 +9,48 @@
 {% block title %}Mapa{% endblock %}
 
 {% block content %}
-  <section style="position: relative;">
+
+  <modal id="info" class="map-popup">
+    <div class="map-popup-container">
+      <div class="close-button">
+        X
+      </div>
+      <div class="map-popup-container-content-top-left">
+        <h2>Acerca el mapa así</h2>
+        <img class="zoom-icon" alt="Zoom Gif" src="{% static 'images/zoom.gif' %}"/>
+        A
+      </div>
+      <div class="map-popup-container-content-top-right">
+        <h2>Acerca el mapa así</h2>
+        {% include 'svg/scroll.svg' %}
+        B
+      </div>
+      <div class="map-popup-container-content-bottom">
+        <h2>Acerca el mapa así</h2>
+        {% include 'svg/scroll.svg' %}
+      </div>
+    </div>
+  </modal>
+
+  <modal id="legend" class="legend-box hidden">
+    <div class="map-popup-container">
+      <h1>Ubicaciónes</h1>
+      <h3>El turismo no es solo una  actividad de consumo. Viajar implica una responsabilidad con este territorio al que vienes.</h3>
+      <h3>Lleva tu basura, dona a una estrategia ambiental para la región escaneando el QR de Darien Verde Azul. Deja cada lugar mejor de como lo encontraste.</h3>
+      <h3><strong>Principales puntos de interes</strong></h3>
+      <div>
+        <img
+          src="/media/map_logos/logos/JAC_Logo.jpg"
+          class="map-marker-0"
+          style="width: 64px; height: 64px;">
+        <h4 style="color: rgb(0, 0, 0);">Junta de Acción Comunal Sapzurro</h4>
+      </div>
+      <hr/>
+      <ul id="legend-list"></ul>
+    </div>
+  </modal>
+
+  <section style="position: relative; padding: 0;">
     <img id="map-background" alt="Map Background" src="{% static 'map/background.webp' %}"/>
     <div id="map"></div>
     {% if user.is_staff %}
@@ -19,25 +60,17 @@
         </button>
       </div>
     {% endif %}
-    <div id="legend-toggle" class="leaflet-bar custom-control">
-      Mostrar Leyenda
-    </div>
-    <!-- Legend Container -->
-    <div id="legend" class="legend-box">
-      <h1>Ubicaciónes</h1>
-      <h3>El turismo no es solo una  actividad de consumo. Viajar implica una responsabilidad  con este territorio al que vienes.</h3>
-      <h3>Lleva tu basura, dona a una estrategia ambiental para la región escaneando el QR de Darien Verde Azul. Deja cada lugar mejor de como lo encontraste.</h3>
-      <h3><strong>Principales puntos de interes</strong></h3>
-      <div class="">
-        <img
-          src="/media/map_logos/logos/JAC_Logo.jpg"
-          class="map-marker-0"
-          style="width: 64px; height: 64px;"
-        >
-        <h4 style="color: rgb(0, 0, 0);">Junta de Acción Comunal Sapzurro</h4>
-      </div>
-      <hr/>
-      <ul id="legend-list"></ul>
+    <div class="custom-control-container">
+      <a id="legend-toggle" class="">
+        {% with SIZE=64 %}
+          {% include "svg/contact-book.svg" %}
+        {% endwith %}
+      </a>
+      <a id="info-toggle" class="">
+        {% with SIZE=64 %}
+          {% include "svg/information-button.svg" %}
+        {% endwith %}
+      </a>
     </div>
   </section>
   <section style="display: none;">
@@ -57,6 +90,15 @@
   </script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="{% static "js/map/setup.js" %}"></script>
+
+  <!-- Information Modal Popup Handle -->
+  <script>
+  document.querySelector(".close-button").addEventListener('click', () => {
+    const modal = document.querySelector(".map-popup");
+    modal.classList.toggle("hidden");
+  });
+  </script>
+
   {% if user.is_staff %}
     <script>
     document.getElementById('save-btn').addEventListener('click', () => {
@@ -89,4 +131,5 @@
     });
     </script>
   {% endif %}
+
 {% endblock %}
