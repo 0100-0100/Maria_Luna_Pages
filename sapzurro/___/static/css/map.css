@@ -2,7 +2,7 @@
   position: absolute;
   object-fit: cover;
   width: 100%;
-  height: 100%;
+  height: 100svh;
 }
 
 .leaflet-container {
@@ -11,13 +11,76 @@
 
 #map {
   width: 100vw;
-  height: calc(100svh - 50px);
+  height: 100svh;
 }
 
 .map-marker-0 {
   border: solid 5px #02CCB2;
   border-radius: 32px;
   background-color: #FFF;
+}
+
+/* Information Pop up. _____________________________________________________ */
+.map-popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100svh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000088;
+  z-index: 1000;
+}
+
+.close-button {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  top: 0;
+  right: 0;
+  background-color: #0f0;
+}
+
+.map-popup-container {
+  position: relative;
+  height: 80%;
+  width: 80%;
+  background-color: #FFF;
+  border-radius: 32px;
+  border: solid var(--menu-toggle-foreground) 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.map-popup-container-content-top-left {
+  flex-grow: 1;
+}
+
+.zoom-icon {
+  width: 15vh;
+  height: 15vh;
+}
+
+.map-popup-container-content-top-right {
+  flex-grow: 1;
+}
+
+.scroll-icon {
+  height: 15vh;
+}
+
+.map-popup-container-content-bottom {
+  width: 100%;
+}
+
+div[class^="map-popup-container-content"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 50%;
 }
 
 /* Marker Pop up information container. ____________________________________ */
@@ -74,62 +137,65 @@
 }
 
 /* Controller inputs and buttons. __________________________________________ */
-.custom-control {
+.custom-control-container {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: white;
-  padding: 8px 12px;
-  cursor: pointer;
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
-  letter-spacing: var(--letter-spacing-wide);
-  line-height: var(--line-height-normal);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  border-radius: 4px;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
   z-index: 1000;
-  user-select: none;
-  transition: all 0.2s ease;
 }
 
-.custom-control:hover {
-  background: #f5f5f5;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+.leaflet-left .leaflet-control {
+  margin: 0;
+}
+
+.leaflet-bottom .leaflet-control {
+  margin: 0;
+}
+
+.leaflet-touch .leaflet-bar {
+  border: none;
+}
+
+.leaflet-control {
+  background-clip: padding-box;
+  border: none;
+  margin: 0;
+  padding: 0 0 20px 20px;
+}
+
+.leaflet-touch .leaflet-bar a {
+  background-color: var(--menu-toggle-foreground);
+  color: var(--menu-toggle-background);
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
+}
+
+.leaflet-touch .leaflet-bar a span {
+  font-size: var(--font-size-2xl);
 }
 
 /* Legend Box. _____________________________________________________________ */
 .legend-box {
   position: fixed;
-  bottom: 120px;
-  left: 10px;
-  width: calc(100vw - 20px);
-  height: 80vh;
-  background-color: #CFD2B4;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100svh;
+  background-color: #00000088;
   color: #000;
-  border-radius: 50px;
-  box-shadow: 0px 0px 0px 10px hsl(0deg 0% 0% / 50%);
-  padding: 0 20px 30px 20px;
-  display: none;
   z-index: 1000;
-  opacity: 0;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  transition: opacity 1300ms ease-in-out, transform 1300ms ease-in-out;
-}
-
-.legend-box.visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 
 .legend-box h1 {
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-normal);
@@ -159,9 +225,10 @@
 
 .legend-box ul {
   list-style: none;
+  width: 100%;
+  max-height: 66.5%;
   padding: 0;
   margin: 0;
-  max-height: 66.5%;
   overflow-y: auto;
   border-radius: 32px;
 }
@@ -192,13 +259,6 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .legend-box {
-    bottom: 80px;
-    left: 5px;
-    width: calc(100vw - 10px);
-    padding: 0 15px 20px 15px;
-    border-radius: 30px;
-  }
 
   .legend-box h1 {
     font-size: var(--font-size-2xl);
@@ -212,7 +272,11 @@
     font-size: var(--font-size-base);
   }
 
-  .custom-control {
+  .custom-control-container {
+    flex-direction: column;
+  }
+
+  [class^=custom-control] {
     font-size: var(--font-size-sm);
     padding: 6px 10px;
   }
