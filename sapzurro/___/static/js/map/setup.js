@@ -8,12 +8,19 @@ const websiteIcon = document.getElementById('website-icon-svg');
 const whatsappIcon = document.getElementById('whatsapp-icon-svg');
 
 function toggleLegend() {
-  legend.classList.toggle('visible');
-  legendButton.innerText = legendButton.innerText === 'Show Legend' ? 'Hide Legend' : 'Show Legend';
+  legend.classList.toggle('hidden');
 }
 const legend = document.getElementById('legend');
 const legendButton = document.getElementById('legend-toggle');
 legendButton.addEventListener('click', toggleLegend);
+
+function toggleInfo() {
+  info.classList.toggle('hidden');
+}
+const info = document.getElementById('info');
+const infoButton = document.getElementById('info-toggle');
+infoButton.addEventListener('click', toggleInfo);
+
 
 const map = L.map('map', {
   crs: L.CRS.Simple,
@@ -156,7 +163,7 @@ function getMarkerLegendTemplate(location, marker) {
 
 const ZOOM_MIN = 0;
 const ZOOM_MAX = 4;
-const MIN_MARKER_SIZE = 8;
+const MIN_MARKER_SIZE = 32;
 const MAX_MARKER_SIZE = 64;
 
 function scaleMarkerSize(zoom) {
@@ -167,7 +174,7 @@ function scaleMarkerSize(zoom) {
 function updateMarkerSizes() {
   const zoom = map.getZoom();
   const size = scaleMarkerSize(zoom);
-  markers.forEach(({ marker, locationId, name }) => {
+  markers.forEach(({ marker }) => {
     const icon = marker.getIcon();
     const newIcon = L.icon({
       ...icon.options,
