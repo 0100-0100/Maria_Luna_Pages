@@ -15,6 +15,10 @@
       <div class="close-button">
         X
       </div>
+      {% with SIZE=64 %}
+        {% include "svg/information-button.svg" %}
+      {% endwith %}
+
       <div class="map-popup-container-content-top-left">
         <h2>Acerca el mapa así</h2>
         <img class="zoom-icon" alt="Zoom Gif" src="{% static 'images/zoom.gif' %}"/>
@@ -34,16 +38,25 @@
 
   <modal id="legend" class="legend-box hidden">
     <div class="map-popup-container">
-      <h1>Ubicaciónes</h1>
-      <h3>El turismo no es solo una  actividad de consumo. Viajar implica una responsabilidad con este territorio al que vienes.</h3>
-      <h3>Lleva tu basura, dona a una estrategia ambiental para la región escaneando el QR de Darien Verde Azul. Deja cada lugar mejor de como lo encontraste.</h3>
-      <h3><strong>Principales puntos de interes</strong></h3>
-      <div>
-        <img
-          src="/media/map_logos/logos/JAC_Logo.jpg"
-          class="map-marker-0"
-          style="width: 64px; height: 64px;">
-        <h4 style="color: rgb(0, 0, 0);">Junta de Acción Comunal Sapzurro</h4>
+      <div class="legend-title">
+        {% with SIZE=64 %}
+          {% include "svg/contact-book.svg" %}
+        {% endwith %}
+        <h1>Ubicaciónes</h1>
+      </div>
+      <div class="legend-text">
+        <h3>El turismo no es solo una  actividad de consumo. Viajar implica una responsabilidad con este territorio al que vienes.</h3>
+        <h3>Lleva tu basura, dona a una estrategia ambiental para la región escaneando el QR de Darien Verde Azul. Deja cada lugar mejor de como lo encontraste.</h3>
+      </div>
+      <div class="landmarks">
+        <h2><strong>Principales puntos de interes</strong></h2>
+        <div class="landmark-item">
+          <img
+            src="/media/map_logos/logos/JAC_Logo.jpg"
+            class="map-marker-0"
+            style="width: 64px; height: 64px;">
+          <h3 style="color: rgb(0, 0, 0);">Junta de Acción Comunal Sapzurro</h3>
+        </div>
       </div>
       <hr/>
       <ul id="legend-list"></ul>
@@ -61,18 +74,19 @@
       </div>
     {% endif %}
     <div class="custom-control-container">
-      <a id="legend-toggle" class="">
+      <a id="legend-toggle" class="toggle">
         {% with SIZE=64 %}
           {% include "svg/contact-book.svg" %}
         {% endwith %}
       </a>
-      <a id="info-toggle" class="">
+      <a id="info-toggle" class="toggle">
         {% with SIZE=64 %}
           {% include "svg/information-button.svg" %}
         {% endwith %}
       </a>
     </div>
   </section>
+
   <section style="display: none;">
     {% with SIZE=32 %}
       {% include 'svg/facebook-icon.svg' %}
