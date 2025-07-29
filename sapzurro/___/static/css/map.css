@@ -170,9 +170,9 @@ div[class^="map-popup-container-content"] {
 .leaflet-touch .leaflet-bar a {
   background-color: var(--menu-toggle-foreground);
   color: var(--menu-toggle-background);
-  width: 64px;
-  height: 64px;
-  line-height: 64px;
+  width: 54px;
+  height: 54px;
+  line-height: 54px;
 }
 
 .leaflet-touch .leaflet-bar a span {
