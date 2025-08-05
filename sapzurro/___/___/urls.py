@@ -20,7 +20,7 @@ from django.contrib import admin
 from django.urls import path
 
 from views.views import (
-    view_about_sapzurro, view_about_us, view_home, view_map, view_mapaventura
+    view_about_sapzurro, view_home, view_map, view_mapaventura
 )
 from map.views import LocationListView, bulk_update_locations
 
@@ -30,7 +30,6 @@ urlpatterns = [
     path('map', view_map),
     path('lo-que-debes-saber-de-sapzurro', view_about_sapzurro),
     path('mapaventura', view_mapaventura),
-    path('lugares-imperdibles', view_about_us),
     # API Map endpoints.
     path('api/locations/', LocationListView.as_view(), name='locations'),
     path('api/bulk-update/', bulk_update_locations, name='bulk_update_locations'),
