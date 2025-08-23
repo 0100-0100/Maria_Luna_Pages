@@ -13,11 +13,18 @@
   <modal id="info" class="map-popup">
     <div class="map-popup-container">
       <div class="close-button">
-        X
+        {% with SIZE=32 %}
+          {% include "svg/close.svg" %}
+        {% endwith %}
       </div>
-      {% with SIZE=64 %}
-        {% include "svg/information-button.svg" %}
-      {% endwith %}
+
+      <div class="map-popup-icon">
+        {% with SIZE=64 %}
+          {% include "svg/information-button.svg" %}
+        {% endwith %}
+      </div>
+
+      <div class="map-popup-spacer"></div>
 
       <div class="map-popup-container-content-top-left">
         <h2>Acerca el mapa así</h2>
@@ -38,12 +45,17 @@
 
   <modal id="legend" class="legend-box hidden">
     <div class="map-popup-container">
-      <div class="legend-title">
+
+      <div class="map-popup-icon">
         {% with SIZE=64 %}
           {% include "svg/contact-book.svg" %}
         {% endwith %}
+      </div>
+
+      <div class="legend-title">
         <h1>Ubicaciónes</h1>
       </div>
+
       <div class="legend-text">
         <h3>El turismo no es solo una  actividad de consumo. Viajar implica una responsabilidad con este territorio al que vienes.</h3>
         <h3>Lleva tu basura, dona a una estrategia ambiental para la región escaneando el QR de Darien Verde Azul. Deja cada lugar mejor de como lo encontraste.</h3>
