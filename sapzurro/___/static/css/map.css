@@ -34,13 +34,26 @@
   z-index: 1000;
 }
 
+.map-popup-icon {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
 .close-button {
   position: absolute;
-  height: 200px;
-  width: 200px;
-  top: 0;
-  right: 0;
-  background-color: #0f0;
+  height: 64px;
+  width: 64px;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-popup-spacer {
+  width: 100%;
+  height: 64px;
 }
 
 .map-popup-container {
@@ -48,8 +61,8 @@
   height: 80%;
   width: 80%;
   background-color: #FFF;
-  border-radius: 32px;
-  border: solid var(--menu-toggle-foreground) 15px;
+  border-radius: 15px;
+  border: solid var(--menu-toggle-foreground) 5px;
   display: flex;
   flex-wrap: wrap;
   overflow-y: auto;
@@ -102,6 +115,7 @@ div[class^="map-popup-container-content"] {
 
 .legend-title {
   display: flex;
+  padding-left: 94px;
   align-items: center;
   flex-direction: row;
   width: 100%;
@@ -191,11 +205,34 @@ div[class^="map-popup-container-content"] {
 }
 
 /* Marker Pop up information container. ____________________________________ */
-.marker-info-container h2 {
+.leaflet-popup-content-wrapper {
+  border: solid 5px #02CCB2;
+}
+
+.marker-info-container {
+  flex-direction: column;
   position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 400px;
+}
+
+.marker-info-logo-container {
+  overflow: hidden;
+}
+
+.marker-info-logo {
+  height: 128px;
+  width: 128px;
+  object-fit: cover;
+}
+
+.marker-info-container h2 {
+  display: flex;
+  gap: 10px;
+  justify-content: left;
+  align-items: center;
   cursor: pointer;
   color: #000;
   font-size: var(--font-size-lg);
@@ -224,23 +261,31 @@ div[class^="map-popup-container-content"] {
 .marker-info-container a {
   text-decoration: none;
   color: #000;
-  font-size: inherit;
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   letter-spacing: var(--letter-spacing-wide);
 }
 
-.marker-info-container a::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-}
+@media (max-width: 768px) {
+  .marker-info-container {
+    min-width: 200px;
+  }
 
-.marker-info-container h2 a:focus::after {
-  outline: 2px solid blue;
+  .marker-info-container h2 {
+    font-size: var(--font-size-base);
+  }
+
+  .marker-info-container h3 {
+    font-size: var(--font-size-lg);
+  }
+
+  .marker-info-container p {
+    font-size: var(--font-size-sm);
+  }
+
+  .marker-info-container a {
+    font-size: var(--font-size-sm);
+  }
 }
 
 /* Controller inputs and buttons. __________________________________________ */
