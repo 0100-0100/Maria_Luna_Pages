@@ -73,12 +73,22 @@ fetch('/api/locations/')
         const socialLinks = [];
 
         if (location.phone) {
-          socialLinks.push(`
+          phoneList = location.phone.split(" ");
+          phoneList.forEach(phone => {
+            const phoneDisplay = (phone) => {
+              const sanitized = phone.replaceAll('+57', '');
+              const match = sanitized.match(/^(\d{3})(\d{3})(\d{2})(\d{2})$/);
+              return match ? `${match[1]} ${match[2]} ${match[3]} ${match[4]}` : sanitized;
+            };
+            const phoneLink = phone;
+            const formattedPhone = phoneDisplay(phone);
+            socialLinks.push(`
             <h2>
               ${whatsappIcon.outerHTML}
-              <a target="_blank" href="https://wa.me/${location.phone.replace('+', '')}?text=Hola%2C%20%5CnVengo%20desde%20mapasapzurro.co%20y%20queria%20saber%20mas%20acerca%20de%20ustedes">${location.phone}</a>
+              <a target="_blank" href="https://wa.me/${phoneLink}?text=Hola!%2C%0AVengo%20desde%20mapasapzurro.co%20y%20queria%20saber%20más%20acerca%20de%20ustedes">${formattedPhone}</a>
             </h2>
-          `);
+            `);
+          })
         }
 
         if (location.instagram_link) {
@@ -86,7 +96,7 @@ fetch('/api/locations/')
           socialLinks.push(`
            <h2>
              ${instagramIcon.outerHTML}
-             <a target="_blank" href="${location.instagram_link}">@${instagramHandle}</a>
+             <a target="_blank" href="${location.instagram_link}">${instagramHandle}</a>
            </h2>
           `);
         }
@@ -105,7 +115,7 @@ fetch('/api/locations/')
           socialLinks.push(`
             <h2>
               ${websiteIcon.outerHTML}
-              <a target="_blank" href="${location.website_link}">${location.website_link}</a>
+              <a target="_blank" href="${location.website_link}">${location.website_link.replace("https://", "").replace("www.", "")}</a>
             </h2>
           `);
         }
@@ -121,14 +131,16 @@ fetch('/api/locations/')
 
         marker.bindPopup(`
           <div class="marker-info-container">
-            <img class="marker-info-logo" height="128px" width="128px" alt="${location.name}" src="${marker.getIcon().options.iconUrl}"/>
+            <div class="marker-info-logo-container">
+              <img class="marker-info-logo" alt="${location.name}" src="${marker.getIcon().options.iconUrl}"/>
+            </div>
             <h3>${location.name}</h3>
             <p>${location.description}</p>
             <div>
               ${socialLinks.join('')}
             </div>
           </div>
-        `);
+        `, { maxWidth: 'auto' });
         markers.push({ locationId: location.id, name: location.name, marker: marker });
         const li = getMarkerLegendTemplate(location, marker);
         document.getElementById('legend-list').appendChild(li);
