@@ -140,6 +140,7 @@ div[class^="map-popup-container-content"] {
   flex-direction: row;
   gap: 10px;
   padding: 8px;
+  align-items: center;
 }
 
 .legend-box h1 {
@@ -220,12 +221,13 @@ div[class^="map-popup-container-content"] {
 
 .marker-info-logo-container {
   overflow: hidden;
+  border-radius: 12px;
 }
 
 .marker-info-logo {
-  height: 128px;
-  width: 128px;
+  width: 100%;
   object-fit: cover;
+  max-height: 30vh;
 }
 
 .marker-info-container h2 {
