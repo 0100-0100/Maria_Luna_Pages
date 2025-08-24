@@ -178,7 +178,6 @@ button:focus:not(.swiper-button-next):not(.swiper-button-prev):not(.swiper-pagin
 
 /* Image optimization */
 img {
-  max-width: 100%;
   height: auto;
   display: block;
 }
