@@ -24,21 +24,17 @@
         {% endwith %}
       </div>
 
-      <div class="map-popup-spacer"></div>
-
       <div class="map-popup-container-content-top-left">
-        <h2>Acerca el mapa así</h2>
-        <img class="zoom-icon" alt="Zoom Gif" src="{% static 'images/zoom.gif' %}"/>
-        {% include 'svg/scroll.svg' %}
-        A
-      </div>
-      <div class="map-popup-container-content-top-right">
-        <h2>Toca o dale click a una ubicacion para ver sus detalles</h2>
-        B
+        <p>Acerca el mapa así</p>
+        <img class="action-icon" alt="Zoom Gif" src="{% static 'images/zoom.gif' %}"/>
       </div>
       <div class="map-popup-container-content-bottom">
-        <h2>Toca o dale click a el numero de Whats App, nombre de Instagram o pagina para contactar</h2>
-        {% include 'svg/scroll.svg' %}
+        <p>Mueve el mapa arrastrando</p>
+        <img class="action-icon" alt="Slide Gif" src="{% static 'images/slide.gif' %}"/>
+      </div>
+      <div class="map-popup-container-content-top-right">
+        <p>Toca o dale click a una ubicacion para ver sus detalles</p>
+        <img class="action-icon" alt="Click Gif" src="{% static 'images/click.gif' %}"/>
       </div>
     </div>
   </modal>
@@ -57,8 +53,9 @@
       </div>
 
       <div class="legend-text">
-        <h3>El turismo no es solo una  actividad de consumo. Viajar implica una responsabilidad con este territorio al que vienes.</h3>
-        <h3>Lleva tu basura, dona a una estrategia ambiental para la región escaneando el QR de Darien Verde Azul. Deja cada lugar mejor de como lo encontraste.</h3>
+        <p>El turismo no es solo una  actividad de consumo.</p>
+        <p>Viajar implica una responsabilidad con este territorio al que vienes.</p>
+        <p>Lleva tu basura, dona a una estrategia ambiental para la región escaneando el QR de Darien Verde Azul. Deja cada lugar mejor de como lo encontraste.</p>
       </div>
       <div class="landmarks">
         <h1><strong>Principales puntos de interes</strong></h1>
@@ -67,7 +64,7 @@
             src="/media/map_logos/logos/JAC_Logo.jpg"
             class="map-marker-0"
             style="width: 64px; height: 64px;">
-          <h2 style="color: rgb(0, 0, 0);">Junta de Acción Comunal Sapzurro</h2>
+          <p style="color: rgb(0, 0, 0);">Junta de Acción Comunal Sapzurro</p>
         </div>
       </div>
       <hr/>

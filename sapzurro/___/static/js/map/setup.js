@@ -135,7 +135,7 @@ fetch('/api/locations/')
             </div>
             <h3>${location.name}</h3>
             <p>${location.description}</p>
-            <div>
+            <div class="marker-info-social-links">
               ${socialLinks.join('')}
             </div>
           </div>
@@ -149,7 +149,7 @@ fetch('/api/locations/')
 function getMarkerLegendTemplate(location, marker) {
   const li = document.createElement('li');
   const contentDiv = document.createElement('div');
-  const name = document.createElement('h2');
+  const name = document.createElement('p');
   name.innerText = location.name;
   name.style.color = '#000';
 
