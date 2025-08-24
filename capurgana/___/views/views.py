@@ -50,14 +50,4 @@ def view_mapaventura(request):
         'DEBUG': settings.DEBUG,
 
     }
-    return render(request, 'know_about.html', context)
-
-
-def view_about_us(request):
-    """About us view."""
-    context = {
-        'foreground_color': COLORS['white'],
-        'background_color': COLORS['black'],
-        'DEBUG': settings.DEBUG,
-    }
-    return render(request, 'know_about.html', context)
+    return render(request, 'about_us.html', context)

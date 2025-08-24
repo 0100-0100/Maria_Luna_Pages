@@ -65,9 +65,9 @@ a {
   color: inherit;
 }
 
-a:hover {
-  opacity: 0.8;
-}
+/* a:hover { */
+/*   opacity: 0.8; */
+/* } */
 
 a:focus {
   outline: 2px solid var(--menu-toggle-foreground);
@@ -92,11 +92,6 @@ section {
   flex-direction: column;
   padding: var(--spacing-lg) var(--spacing-sm);
   width: 100%;
-}
-
-/* Common section spacing */
-section:not(:last-child) {
-  margin-bottom: var(--spacing-md);
 }
 
 /* Common button styles */
@@ -183,7 +178,6 @@ button:focus:not(.swiper-button-next):not(.swiper-button-prev):not(.swiper-pagin
 
 /* Image optimization */
 img {
-  max-width: 100%;
   height: auto;
   display: block;
 }
@@ -249,6 +243,10 @@ img[loading="lazy"].loaded {
 
 .skip-link:focus {
   top: 6px;
+}
+
+.hidden {
+  display: none;
 }
 
 /* Print styles */

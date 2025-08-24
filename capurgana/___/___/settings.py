@@ -32,13 +32,13 @@ ALLOWED_HOSTS = [
     'mapacapurgana.co',
     'www.mapacapurgana.co'
 ]
-ALLOWED_HOSTS += ['localhost', '127.0.0.1', '192.168.0.20'] if DEBUG else []
+ALLOWED_HOSTS += ['localhost', '127.0.0.1'] if DEBUG else []
 
 CORS_ALLOWED_ORIGINS = [
     'https://www.mapasapzurro.co',
     'https://mapasapzurro.co'
 ]
-CORS_ALLOWED_ORIGINS += ['http://localhost', 'http://*'] if DEBUG else []
+CORS_ALLOWED_ORIGINS += ['http://localhost'] if DEBUG else []
 
 INSTALLED_APPS = [
     'django.contrib.admin',

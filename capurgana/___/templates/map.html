@@ -9,7 +9,70 @@
 {% block title %}Mapa{% endblock %}
 
 {% block content %}
-  <section style="position: relative;">
+
+  <modal id="info" class="map-popup">
+    <div class="map-popup-container">
+      <div class="close-button">
+        {% with SIZE=32 %}
+          {% include "svg/close.svg" %}
+        {% endwith %}
+      </div>
+
+      <div class="map-popup-icon">
+        {% with SIZE=64 %}
+          {% include "svg/information-button.svg" %}
+        {% endwith %}
+      </div>
+
+      <div class="map-popup-container-content-top-left">
+        <p>Acerca el mapa así</p>
+        <img class="action-icon" alt="Zoom Gif" src="{% static 'images/zoom.gif' %}"/>
+      </div>
+      <div class="map-popup-container-content-bottom">
+        <p>Mueve el mapa arrastrando</p>
+        <img class="action-icon" alt="Slide Gif" src="{% static 'images/slide.gif' %}"/>
+      </div>
+      <div class="map-popup-container-content-top-right">
+        <p>Toca o dale click a una ubicacion para ver sus detalles</p>
+        <img class="action-icon" alt="Click Gif" src="{% static 'images/click.gif' %}"/>
+      </div>
+    </div>
+  </modal>
+
+  <modal id="legend" class="legend-box hidden">
+    <div class="map-popup-container">
+
+      <div class="map-popup-icon">
+        {% with SIZE=64 %}
+          {% include "svg/contact-book.svg" %}
+        {% endwith %}
+      </div>
+
+      <div class="legend-title">
+        <h1>Ubicaciónes</h1>
+      </div>
+
+      <div class="legend-text">
+        <p>El turismo no es solo una  actividad de consumo.</p>
+        <p>Viajar implica una responsabilidad con este territorio al que vienes.</p>
+        <p>Lleva tu basura, dona a una estrategia ambiental para la región escaneando el QR de Darien Verde Azul. Deja cada lugar mejor de como lo encontraste.</p>
+      </div>
+      <div class="landmarks">
+        <h1><strong>Principales puntos de interes</strong></h1>
+        <div class="landmark-item">
+          <img
+            src="/media/map_logos/logos/JAC_Logo.jpg"
+            class="map-marker-0"
+            style="width: 64px; height: 64px;">
+          <p style="color: rgb(0, 0, 0);">Junta de Acción Comunal Sapzurro</p>
+        </div>
+      </div>
+      <hr/>
+      <ul id="legend-list"></ul>
+    </div>
+  </modal>
+
+  <section style="position: relative; padding: 0;">
     <img id="map-background" alt="Map Background" src="{% static 'map/background.webp' %}"/>
     <div id="map"></div>
     {% if user.is_staff %}
@@ -19,27 +82,20 @@
         </button>
       </div>
     {% endif %}
-    <div id="legend-toggle" class="leaflet-bar custom-control">
-      Mostrar Leyenda
-    </div>
-    <!-- Legend Container -->
-    <div id="legend" class="legend-box">
-      <h1>Ubicaciónes</h1>
-      <h3>El turismo no es solo una  actividad de consumo. Viajar implica una responsabilidad  con este territorio al que vienes.</h3>
-      <h3>Lleva tu basura, dona a una estrategia ambiental para la región escaneando el QR de Darien Verde Azul. Deja cada lugar mejor de como lo encontraste.</h3>
-      <h3><strong>Principales puntos de interes</strong></h3>
-      <div class="">
-        <img
-          src="/media/map_logos/logos/JAC_Logo.jpg"
-          class="map-marker-0"
-          style="width: 64px; height: 64px;"
-        >
-        <h4 style="color: rgb(0, 0, 0);">Junta de Acción Comunal Capurganá</h4>
-      </div>
-      <hr/>
-      <ul id="legend-list"></ul>
+    <div class="custom-control-container">
+      <a id="legend-toggle" class="toggle">
+        {% with SIZE=64 %}
+          {% include "svg/contact-book.svg" %}
+        {% endwith %}
+      </a>
+      <a id="info-toggle" class="toggle">
+        {% with SIZE=64 %}
+          {% include "svg/information-button.svg" %}
+        {% endwith %}
+      </a>
     </div>
   </section>
+
   <section style="display: none;">
     {% with SIZE=32 %}
       {% include 'svg/facebook-icon.svg' %}
@@ -57,6 +113,15 @@
   </script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="{% static "js/map/setup.js" %}"></script>
+
+  <!-- Information Modal Popup Handle -->
+  <script>
+  document.querySelector(".close-button").addEventListener('click', () => {
+    const modal = document.querySelector(".map-popup");
+    modal.classList.toggle("hidden");
+  });
+  </script>
+
   {% if user.is_staff %}
     <script>
     document.getElementById('save-btn').addEventListener('click', () => {
@@ -89,4 +154,5 @@
     });
     </script>
   {% endif %}
+
 {% endblock %}

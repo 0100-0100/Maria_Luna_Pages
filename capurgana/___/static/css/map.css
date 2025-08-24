@@ -2,7 +2,7 @@
   position: absolute;
   object-fit: cover;
   width: 100%;
-  height: 100%;
+  height: 100svh;
 }
 
 .leaflet-container {
@@ -11,7 +11,7 @@
 
 #map {
   width: 100vw;
-  height: calc(100svh - 50px);
+  height: 100svh;
 }
 
 .map-marker-0 {
@@ -20,116 +20,148 @@
   background-color: #FFF;
 }
 
-/* Marker Pop up information container. ____________________________________ */
-.marker-info-container h2 {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  color: #000;
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-normal);
-  letter-spacing: var(--letter-spacing-wide);
-}
-
-.marker-info-container h3 {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-tight);
-  letter-spacing: var(--letter-spacing-normal);
-  color: #000;
-  margin-bottom: 0.5rem;
-}
-
-.marker-info-container p {
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-relaxed);
-  letter-spacing: var(--letter-spacing-wide);
-  color: #000;
-  margin-bottom: 1rem;
-}
-
-.marker-info-container a {
-  text-decoration: none;
-  color: #000;
-  font-size: inherit;
-  font-weight: var(--font-weight-medium);
-  letter-spacing: var(--letter-spacing-wide);
-}
-
-.marker-info-container a::after {
-  content: "";
+/* Information Pop up. _____________________________________________________ */
+.map-popup {
   position: absolute;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
-  z-index: 1;
-}
-
-.marker-info-container h2 a:focus::after {
-  outline: 2px solid blue;
-}
-
-/* Controller inputs and buttons. __________________________________________ */
-.custom-control {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: white;
-  padding: 8px 12px;
-  cursor: pointer;
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
-  letter-spacing: var(--letter-spacing-wide);
-  line-height: var(--line-height-normal);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  border-radius: 4px;
+  height: 100svh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000088;
   z-index: 1000;
-  user-select: none;
-  transition: all 0.2s ease;
 }
 
-.custom-control:hover {
-  background: #f5f5f5;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+.map-popup-icon {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+.close-button {
+  position: absolute;
+  height: 64px;
+  width: 64px;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-popup-spacer {
+  width: 100%;
+  height: 64px;
+}
+
+.map-popup-container {
+  position: relative;
+  height: 80%;
+  width: 80%;
+  background-color: #FFF;
+  border-radius: 15px;
+  border: solid var(--menu-toggle-foreground) 5px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  justify-content: center;
+}
+
+.map-popup-container hr {
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
+  background: var(--menu-toggle-foreground);
+}
+
+.map-popup-container p {
+  font-size: var(--font-size-2xl);
+  line-height: var(--line-height-relaxed);
+  letter-spacing: var(--letter-spacing-wide);
+  margin: 0rem;
+  max-width: 50ch;
+  text-align: center;
+  color: #1C1C1C;
+}
+
+.map-popup-container-content-top-left {
+  flex-grow: 1;
+}
+
+.action-icon {
+  width: 10vh;
+  height: 10vh;
+}
+
+.map-popup-container-content-top-right {
+  flex-grow: 1;
+}
+
+.scroll-icon {
+  height: 15vh;
+}
+
+.map-popup-container-content-bottom {
+  width: 100%;
+}
+
+div[class^="map-popup-container-content"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 50%;
 }
 
 /* Legend Box. _____________________________________________________________ */
 .legend-box {
   position: fixed;
-  bottom: 120px;
-  left: 10px;
-  width: calc(100vw - 20px);
-  height: 80vh;
-  background-color: #CFD2B4;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100svh;
+  background-color: #00000088;
   color: #000;
-  border-radius: 50px;
-  box-shadow: 0px 0px 0px 10px hsl(0deg 0% 0% / 50%);
-  padding: 0 20px 30px 20px;
-  display: none;
   z-index: 1000;
-  opacity: 0;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  transition: opacity 1300ms ease-in-out, transform 1300ms ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.legend-box.visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+.legend-title {
+  display: flex;
+  padding-left: 94px;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  gap: 20px;
+}
+
+.legend-text {
+  width: 100%;
+  font-size: var(--font-size-lg);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-content: center;
+  align-items: center;
+}
+
+.landmarks {
+  width: 80%;
+}
+
+.landmark-item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 8px;
+  align-items: center;
 }
 
 .legend-box h1 {
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-normal);
@@ -145,7 +177,7 @@
   letter-spacing: var(--letter-spacing-wide);
   color: #000;
   margin-bottom: 1rem;
-  max-width: 60ch;
+  max-width: 80ch;
 }
 
 .legend-box h4 {
@@ -159,10 +191,10 @@
 
 .legend-box ul {
   list-style: none;
+  width: 80%;
+  max-height: 66.5%;
   padding: 0;
   margin: 0;
-  max-height: 66.5%;
-  overflow-y: auto;
   border-radius: 32px;
 }
 
@@ -179,7 +211,7 @@
 
 .legend-box ul li div {
   display: flex;
-  gap: 10px;
+  gap: 1.5rem;
   align-items: center;
 }
 
@@ -190,15 +222,159 @@
   margin: 0;
 }
 
+/* Marker Pop up information container. ____________________________________ */
+.leaflet-popup-content-wrapper {
+  border: solid 5px #02CCB2;
+}
+
+.marker-info-container {
+  flex-direction: column;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.marker-info-logo-container {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.marker-info-logo {
+  max-width: 100%;
+  object-fit: cover;
+  height: 14rem;
+}
+
+.marker-info-container h2 {
+  display: flex;
+  gap: 10px;
+  justify-content: left;
+  align-items: center;
+  cursor: pointer;
+  color: #000;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-wide);
+  margin: 0;
+}
+
+.marker-info-container h3 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-normal);
+  color: #000;
+  margin: 0;
+}
+
+.marker-info-container p {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  letter-spacing: var(--letter-spacing-wide);
+  margin-bottom: 1.5rem;
+  max-width: 40ch;
+  text-align: center;
+  color: #1C1C1C;
+  margin: 0;
+}
+
+
+
+.marker-info-container a {
+  text-decoration: none;
+  color: #000;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  min-width: 14ch;
+}
+
+.marker-info-social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+
+@media (max-width: 768px) {
+  .marker-info-container {
+    min-width: 200px;
+  }
+
+  .marker-info-container h2 {
+    font-size: var(--font-size-base);
+  }
+
+  .marker-info-container h3 {
+    font-size: var(--font-size-lg);
+  }
+
+  .marker-info-container p {
+    font-size: var(--font-size-sm);
+    width: 30ch;
+  }
+
+  .marker-info-container a {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Controller inputs and buttons. __________________________________________ */
+.custom-control-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+  z-index: 1000;
+}
+
+.toggle {
+  pointer: cursor
+}
+
+.leaflet-left .leaflet-control {
+  margin: 0;
+}
+
+.leaflet-bottom .leaflet-control {
+  margin: 0;
+}
+
+.leaflet-top, .leaflet-bottom {
+  z-index: 400;
+}
+
+.leaflet-touch .leaflet-bar {
+  border: none;
+}
+
+.leaflet-control {
+  background-clip: padding-box;
+  border: none;
+  margin: 0;
+  padding: 0 0 20px 20px;
+}
+
+.leaflet-touch .leaflet-bar a {
+  background-color: var(--menu-toggle-foreground);
+  color: var(--menu-toggle-background);
+  width: 54px;
+  height: 54px;
+  line-height: 54px;
+}
+
+.leaflet-touch .leaflet-bar a span {
+  font-size: var(--font-size-2xl);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .legend-box {
-    bottom: 80px;
-    left: 5px;
-    width: calc(100vw - 10px);
-    padding: 0 15px 20px 15px;
-    border-radius: 30px;
-  }
 
   .legend-box h1 {
     font-size: var(--font-size-2xl);
@@ -212,7 +388,11 @@
     font-size: var(--font-size-base);
   }
 
-  .custom-control {
+  .custom-control-container {
+    flex-direction: column;
+  }
+
+  [class^=custom-control] {
     font-size: var(--font-size-sm);
     padding: 6px 10px;
   }
