@@ -21,7 +21,6 @@ const info = document.getElementById('info');
 const infoButton = document.getElementById('info-toggle');
 infoButton.addEventListener('click', toggleInfo);
 
-
 const map = L.map('map', {
   crs: L.CRS.Simple,
   minZoom: 0,
