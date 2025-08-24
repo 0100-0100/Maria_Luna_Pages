@@ -150,9 +150,9 @@ fetch('/api/locations/')
 function getMarkerLegendTemplate(location, marker) {
   const li = document.createElement('li');
   const contentDiv = document.createElement('div');
-  const nameH4 = document.createElement('h4');
-  nameH4.innerText = location.name;
-  nameH4.style.color = '#000';
+  const name = document.createElement('h2');
+  name.innerText = location.name;
+  name.style.color = '#000';
 
   const logoDiv = document.createElement('div');
   const logo = document.createElement('img');
@@ -162,7 +162,7 @@ function getMarkerLegendTemplate(location, marker) {
   logo.classList.add('map-marker-0');
   logoDiv.appendChild(logo);
   contentDiv.appendChild(logoDiv);
-  contentDiv.appendChild(nameH4);
+  contentDiv.appendChild(name);
   li.appendChild(contentDiv);
 
   li.addEventListener('click', () => {
