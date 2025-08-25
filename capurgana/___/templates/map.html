@@ -19,7 +19,7 @@
       </div>
 
       <div class="map-popup-icon">
-        {% with SIZE=64 %}
+        {% with SIZE=64 COLOR=foreground_color %}
           {% include "svg/information-button.svg" %}
         {% endwith %}
       </div>
@@ -42,8 +42,14 @@
   <modal id="legend" class="legend-box hidden">
     <div class="map-popup-container">
 
+      <div class="close-button">
+        {% with SIZE=32 %}
+          {% include "svg/close.svg" %}
+        {% endwith %}
+      </div>
+
       <div class="map-popup-icon">
-        {% with SIZE=64 %}
+        {% with SIZE=64 COLOR=foreground_color %}
           {% include "svg/contact-book.svg" %}
         {% endwith %}
       </div>
@@ -84,12 +90,12 @@
     {% endif %}
     <div class="custom-control-container">
       <a id="legend-toggle" class="toggle">
-        {% with SIZE=64 %}
+        {% with SIZE=48 COLOR="#FFF" %}
           {% include "svg/contact-book.svg" %}
         {% endwith %}
       </a>
       <a id="info-toggle" class="toggle">
-        {% with SIZE=64 %}
+        {% with SIZE=48 COLOR="#FFF" %}
           {% include "svg/information-button.svg" %}
         {% endwith %}
       </a>
@@ -97,7 +103,7 @@
   </section>
 
   <section style="display: none;">
-    {% with SIZE=32 %}
+    {% with SIZE=32 COLOR='#000'%}
       {% include 'svg/facebook-icon.svg' %}
       {% include 'svg/instagram-icon.svg' %}
       {% include 'svg/mail-icon.svg' %}
@@ -116,8 +122,13 @@
 
   <!-- Information Modal Popup Handle -->
   <script>
-  document.querySelector(".close-button").addEventListener('click', () => {
+  document.querySelector('#info .close-button').addEventListener('click', () => {
     const modal = document.querySelector(".map-popup");
+    modal.classList.toggle("hidden");
+  });
+
+  document.querySelector("#legend .close-button").addEventListener('click', () => {
+    const modal = document.querySelector(".legend-box");
     modal.classList.toggle("hidden");
   });
   </script>

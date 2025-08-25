@@ -44,6 +44,21 @@
   color: var(--menu-toggle-background);
 }
 
+*::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #00000044;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--menu-toggle-foreground);
+  border-radius: 12px;
+  outline: 3px solid #00000011;
+}
+
 html {
   background-color: var(--menu-toggle-foreground);
   scroll-behavior: smooth;
@@ -118,6 +133,7 @@ button:not(.swiper-button-next):not(.swiper-button-prev):not(.swiper-pagination-
   box-shadow: var(--shadow-md);
   text-decoration: none; /* Important for <a> tags */
   text-align: center;
+  gap: 10px;
 }
 
 .main-button:hover,

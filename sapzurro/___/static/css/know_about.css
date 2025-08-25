@@ -56,8 +56,7 @@
 }
 
 .section-type-1-img {
-  height: 300px;
-  width: calc(100% - 40px);
+  width: 100%;
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 1.5rem;

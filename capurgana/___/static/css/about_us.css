@@ -1,5 +1,23 @@
+@import './know_about.css';
+
+/* Carousel section */
+#carousel-section {
+  height: 80svh;
+  width: 100vw;
+  padding: 0;
+  position: relative;
+}
+
 .links-container {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+
+.links-container div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
 }
